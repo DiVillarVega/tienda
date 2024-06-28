@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <h1 class="neon cute-font-regular">FICHA DE PRODUCTO</h1>
+    <!--FICHA DISPONIBLE-->
+
+    <form method="post" id="formulario-ficha">
+
+        {% csrf_token %}
+
+        <div>
+        {{ imagen }} <br>
+        {{ nombre }} <br>
+        {{ html_estado|safe }}  <br>
+        {{ html_precio|safe }}  <br>
+        {{ descripcion }}  <br>
+        {{ html_stock|safe }}  <br>
+        </div>
+        
+        <div>
+            <input type="hidden" id="accion">
+            <a href="{% url 'comprar_ahora' %}" class="btn btn-primary ancho-160px"> 
+                Comprar ahora 
+            </a>
+            <a href="{% url 'agregar_producto_al_carrito' id %}" class="btn btn-secondary ancho-160px"> 
+                Agregar al carrito 
+            </a>
+        </div>
+    </form>
+
+{% endblock content %}

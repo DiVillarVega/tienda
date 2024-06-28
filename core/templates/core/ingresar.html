@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- contenido principal -->
+    <main role="main">
+        <div class="container">
+            <section class="text center">
+                <h1 class="cute-font-regular neon">INGRESAR</h1>
+                <br>
+
+                <!-- Formulario de Ingreso de cliente -->
+                <form method="POST" id="formulario_login" action="">
+                    <div class="cuadro_login">
+
+                        {% csrf_token %} 
+                        <div>
+                            <!-- campos del ingreso de usuario -->
+                            <div>
+
+                                <div class="form-group">
+                                    <label for="correo" class="letra">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="correo" placeholder="Ingrese correo" name="correo" value="" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="password" class="letra">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Ingrese contraseña" name="password" value="" />
+                                </div>
+
+
+                            </div>
+                            <br>
+                            <div>
+                                <div class="col text-center">
+                                    <button type="submit" class="btn btn-primary boton_registro">Ingresar</button>
+                                    <br><br>
+                                    <a class="letra" href="{% url 'registro' %}">Registrarse</a>
+                                    <a class="letra" href="{% url 'registro' %}">Olvide mi contraseña</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center">
+                        <br><br>
+                        <a class="letra" href="{% url 'miscompras' %}">Presiona aqui para simular que ingresaste como Cliente</a>
+                        <br><br><br>
+                        <a class="letra" href="">Presiona aqui para simular que ingresaste como Administrador</a>
+                        <br><br>
+                    </div>
+
+                </form>
+            </section>
+        </div>
+    </main>
+    {% include 'common/combobox_usuarios.html' %}
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'core/js/validacion_login.js'%}"></script>
+{% endblock script %}
+

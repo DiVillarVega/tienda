@@ -1,0 +1,151 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+    <br />
+    <br />
+    <!-- Contenido principal -->
+    <main role="main">
+      <div class="container">
+        <section class="text-center">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'core/img/carrusel1.jpg' %}" class="d-block w-100" alt="" />
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'core/img/carrusel2.jpg' %}" class="d-block w-100" alt="" />
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'core/img/carrusel3.jpg'%}" class="d-block w-100" alt="" />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div class="containerpen">
+      <img src="{% static 'core/img/penguindance.gif' %}" alt="Pingüino caminando" id="pinguino" />
+    </div>
+    <br />
+    <br />
+    <!-- Productos de la tienda -->
+
+    <div class="album">
+      <div class="container">
+        <div id="product-item" class="row">
+          <!-- PRODUCTO N1 -->
+          {% for producto in productos %}
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" id="mini_producto">
+            <div class="card mb-4 box-shadow" style="padding: 30px">
+              <div class="text-center">
+                <img
+                  class="card-img-top thumbnail-product"
+                  src="/media/{{ producto.imagen }} "
+                  alt=""
+                />
+              </div>
+              <div class="card-body">
+              
+                <div class="card-text">
+                  <div class="lead text-secondary fw-bold">EN OFERTA</div>
+                  <br />
+                  <div class="lead text-danger">
+                    <span class="precio-real fw-bold">
+                      {{ producto.precio }}
+                    </span>
+                    <span class="precio-oferta fw-bold"> ***$15.990*** </span>
+                  </div>
+                  <br />
+                  {{ producto.nombre }}
+                  <br />
+                  <b>Descripción</b>
+                  <div class="text-truncate">
+                    ¡Acompaña a Pan y Federico! Un rage game donde tendrás que
+                    cooperar para saltar y escalar hasta el pico de la montaña.
+                    Eso si, tendrás que tener mucho cuidado de no caer, y no
+                    arrastrar a tu compañero pingüino camino abajo... ¿Podrás
+                    superar junto a un amigo la ruta hasta arriba?
+                  </div>
+                  <br />
+                  <b>En stock: 10 unidades</b>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a
+                      id="btnComprar "
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary boton_registro"
+                      href="{% url 'ficha' producto.id %}"
+                    >
+                      Comprar
+                    </a>
+                    <button 
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary boton_registro"
+                    >
+                      Agregar al Carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

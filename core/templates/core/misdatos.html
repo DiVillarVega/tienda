@@ -1,0 +1,99 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- contenido principal -->
+    <main role="main">
+        <div class="container">
+            <section class="text center">
+                <h1 class="cute-font-regular neon">DATOS CLIENTE/ADMIN</h1>
+                <br>
+
+                <!-- Formulario de registro de cliente -->
+                <form method="POST" id="formulario_misdatos" action="">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- campos del registro de usuario -->
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                                <div class="form-group">
+                                    <label for="rut" class="letra">RUT</label>
+                                    <input type="text" id="rut" name="rut" class="form-control" placeholder="Ej:12345678-9" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nombre" class="letra">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escriba su nombre" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="apellido" class="letra">Apellido</label>
+                                    <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Escriba su apellido" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="correo" class="letra fw-bold">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="correo" placeholder="Ej: penguin@gmail.com" name="correo" value="" />
+                                    <div id="emailHelp" class="form-help letra">Nunca compartiremos sus datos</div>
+                                </div>
+
+                                <div class="md-3 fw-bold">
+                                    <label for="direccion" class="letra">Dirección</label>
+                                    <textarea class="form-control" id="direccion" rows="3" placeholder="Escriba su domicilio" name="direccion" value=""></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="letra">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Minimo de 8 caracteres" name="password" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password2" class="letra">Repetir contraseña</label>
+                                    <input type="password" class="form-control" id="password2" placeholder="Repetir contraseña" name="password2" value="" />
+                                </div>
+                                <br>
+                                <div class="mb-3 form-check" form check>
+                                    <input class="form-check-input" type="checkbox" value="" id="subscripcion">
+                                    <label class="form-check-label letra" for="subscripcion">
+                      <strong>
+                        Subscripción
+                      </strong>
+                    </label>
+                                    <div id="subscripcionHelp" class="form-help letra">
+                                        Deseo suscribirme a PenguinPixel con un pago de $3000 mensuales y obtener un descuento del 5% en mis compras
+                                    </div>
+                                    <div></div>
+                                </div>
+
+                            </div>
+                            <!-- foto de perfil -->
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <br>
+                                <div class="image-container">
+                                    <img src="{% static 'core/img/DiegoCristo.png'%}" alt="" class="user-image"/>
+                                    <input type="file" class="form-control file-input">
+                                </div>
+                            </div>
+                            <!-- fin foto perfil -->
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary boton_registro">Actualizar</button>
+                                <button type="reset" class="btn btn-primary boton_registro">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'core/js/validacion_misdatos.js'%}"></script>
+{% endblock script %}
+

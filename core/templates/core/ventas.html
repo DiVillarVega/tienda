@@ -1,0 +1,367 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- Contenido principal -->
+    <main role="main">
+        <div class="container">
+            <section class="text-center">
+                <h1 class="cute-font-regular neon">HISTORIAL DE VENTAS</h1>
+                <br>
+                <table class="table table-hover">
+                    <thead>
+                        <th scope="col" class="d-none d-lg-block d-lg-table-cell">Nro Boleta</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col" class="text-end">Nombre Cliente</th>
+                        <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Subscripto</th>
+                        <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Monto total</th>
+                        <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Estado Actual</th>
+                        <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Detalle</th>
+                        <th scope="col" class="text-center">Cambiar Estado</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="col" class="d-none d-lg-block d-lg-table-cell">258</td>
+                            <td scope="col">10/03/2024</td>
+                            <td scope="col" class="text-center">Juan Perez</td>
+                            <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                            <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$70.990</td>
+                            <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Entregado</td>
+                            <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                <a href="{% url 'boleta' %}">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                        </button>
+                                </a>
+                            </td>
+                            <td scope="col" class="text-center">
+                                <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                      </button>
+                                <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                      </button>
+                                <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                      </button>
+                                <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                      </button>
+                            </td>
+                        </tr>
+                        <tfoot>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">325</td>
+                                <td scope="col">14/04/2024</td>
+                                <td scope="col" class="text-center">Emilio Rojas</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$32.450</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Vendido</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">122</td>
+                                <td scope="col">06/04/2024</td>
+                                <td scope="col" class="text-center">Silvia Mardonez</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Si</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$29.990</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Anulado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">462</td>
+                                <td scope="col">12/04/2024</td>
+                                <td scope="col" class="text-center">Pedro Pascal</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Si</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$89.980</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Despachado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">563</td>
+                                <td scope="col">22/03/2024</td>
+                                <td scope="col" class="text-center">Mateo Diaz</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$43.570</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Entregado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">433</td>
+                                <td scope="col">30/03/2024</td>
+                                <td scope="col" class="text-center">Rocio Valencia</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$36.790</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Entregado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">290</td>
+                                <td scope="col">09/04/2024</td>
+                                <td scope="col" class="text-center">Patricio Gomez</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$92.010</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Anulado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">369</td>
+                                <td scope="col">02/04/2024</td>
+                                <td scope="col" class="text-center">Gabriel Sanchez</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Si</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$97.540</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Entregado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">262</td>
+                                <td scope="col">08/04/2024</td>
+                                <td scope="col" class="text-center">Camila Muñoz</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$29.980</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Entregado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">492</td>
+                                <td scope="col">11/04/2024</td>
+                                <td scope="col" class="text-center">Luis Silva</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Si</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$75.990</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Despachado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">273</td>
+                                <td scope="col">09/04/2024</td>
+                                <td scope="col" class="text-center">Victor Aguilera</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$45.400</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Despachado</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">533</td>
+                                <td scope="col">14/04/2024</td>
+                                <td scope="col" class="text-center">Paloma Rozas</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$61.990</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Vendido</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">544</td>
+                                <td scope="col">14/04/2024</td>
+                                <td scope="col" class="text-center">Juan Perez</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$52.390</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Vendido</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="d-none d-lg-block d-lg-table-cell">462</td>
+                                <td scope="col">13/04/2024</td>
+                                <td scope="col" class="text-center">Vanessa Torres</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">No</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">$19.990</td>
+                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">Vendido</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">
+                                    <a href="{% url 'boleta' %}">
+                                        <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
+                          </button>
+                                    </a>
+                                </td>
+                                <td scope="col" class="text-center">
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Anulado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Vendido
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Despachado
+                        </button>
+                                    <button type="button" href="#" class="btn btn-primary btn-sm">Entregado
+                        </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+{% endblock content %}

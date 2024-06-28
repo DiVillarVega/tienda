@@ -1,0 +1,156 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- contenido principal -->
+    <main role="main">
+        <div class="container">
+            <section class="text center">
+                <h1 class="cute-font-regular neon">MANTENEDOR DE PRODUCTOS</h1>
+                <br>
+
+                <!-- Formulario de registro de producto -->
+                <form method="POST" id="formulario_productos" action="">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- campos del registro de producto -->
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                                <div class="form-group">
+                                    <label for="id" class="letra">ID</label>
+                                    <input type="text" id="id" name="id" class="form-control" placeholder="Ingrese aqui el ID" value="" />
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="categoria" class="form-label letra">Categoría</label> <br>
+                                    <div class="dropdown" id="categoria">
+                                        <select id="categoria" class="form-control" name="categoria">
+                        <option value="">Seleccione una categoría</option>
+                        <option value="1">Acción</option>
+                        <option value="2">Hack and slash</option>
+                        <option value="3">Rol</option>
+                        <option value="4">Simulación</option>
+                        <option value="5">Disparos en primera persona</option>
+                        <option value="6">Defensa de Torres</option>
+                        
+                    </select>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="form-group">
+                                    <label for="nombrep" class="letra">Nombre</label>
+                                    <input type="text" id="nombrep" name="nombrep" class="form-control" placeholder="Escriba nombre producto" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descripcion" class="letra">Descripción</label>
+                                    <textarea type="text" id="descripcion" rows="3" name="descripcion" class="form-control" placeholder="Escriba descripción de producto" value=""></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="precio" class="letra">Precio</label>
+                                    <input type="number" class="form-control" id="precio" placeholder="Ingrese precio producto" name="precio" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descuentosub" class="letra">Descuento subscriptor %</label>
+                                    <input type="number" class="form-control" id="descuentosub" placeholder="Ingrese descuento subscriptor" name="descuentosub" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="descuentoof" class="letra">Descuento por oferta %</label>
+                                    <input type="number" class="form-control" id="descuentoof" placeholder="Ingrese descuento oferta" name="descuentoof" value="" />
+                                </div>
+
+
+                                <br>
+
+                            </div>
+                            <!-- foto de perfil -->
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <br>
+                                <div class="image-container">
+                                    <img src="{% static 'core/img/perfil.webp'%}" alt="" class="user-image"/>
+                                    <input type="file" class="form-control file-input">
+                                </div>
+                            </div>
+                            <!-- fin foto perfil -->
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary boton_registro">Guardar</button>
+                                <button type="submit" class="btn btn-primary boton_registro">Nuevo</button>
+                                <button type="reset" class="btn btn-primary boton_registro">Eliminar</button>
+                            </div>
+                        </div>
+                        <br><br>
+                        <!-- tabla godines -->
+                        <table class="table table-hover">
+                            <thead>
+                                <th scope="col" class="text-center"></th>
+                                <th scope="col" class="text-center d-none d-lg-block d-lg-table-cell">ID</th>
+                                <th scope="col" class="text-center">Categoría</th>
+                                <th scope="col" class="text-center">Producto</th>
+                                <th scope="col" class="text-center">Descripción</th>
+                                <th scope="col" class="text-center">Precio</th>
+                                <th scope="col" class="text-center">%Desc Subscriptor</th>
+                                <th scope="col" class="text-center">%Desc Oferta</th>
+                                <th scope="col" class="text-center">Imagen</th>
+                            </thead>
+                            <tbody>
+                                <!-- Primera linea -->
+                                <tr>
+                                    <td scope="row" class="text-center"></td>
+                                    <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">1234</td>
+                                    <td scope="col" class="text-center">Hack and slash</td>
+                                    <td scope="col" class="text-center">Hi-fi Rush</td>
+                                    <td scope="col" class="text-center">juego de ritmo y música...</td>
+                                    <td scope="col" class="text-center">$50.000</td>
+                                    <td scope="col" class="text-center">5%</td>
+                                    <td scope="col" class="text-center">10%</td>
+                                    <td><img src="{% static 'core/img/hifi.png'%}" alt="Hi-fi Rush" width="50px"></td>
+                                </tr>
+                                <!-- Segunda linea -->
+                                <tr>
+                                    <td scope="row" class="text-center"></td>
+                                    <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">1328</td>
+                                    <td scope="col" class="text-center">Hack and slash</td>
+                                    <td scope="col" class="text-center">God of War</td>
+                                    <td scope="col" class="text-center">juego de acción y aventuras...</td>
+                                    <td scope="col" class="text-center">$65.000</td>
+                                    <td scope="col" class="text-center">5%</td>
+                                    <td scope="col" class="text-center">30%</td>
+                                    <td><img src="{% static 'core/img/god_of_war.jpg'%}" alt="Hi-fi Rush" width="50px"></td>
+
+                                </tr>
+                                <!-- Tercera linea -->
+                                <tr>
+                                    <td scope="row" class="text-center">></td>
+                                    <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">1436</td>
+                                    <td scope="col" class="text-center">Sandbox</td>
+                                    <td scope="col" class="text-center">Minecraft</td>
+                                    <td scope="col" class="text-center">juego sandbox de mundo abierto...</td>
+                                    <td scope="col" class="text-center">$34.990</td>
+                                    <td scope="col" class="text-center">5%</td>
+                                    <td scope="col" class="text-center">0%</td>
+                                    <td><img src="{% static 'core/img/minecraft.jpg'%}" alt="Hi-fi Rush" width="50px"></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </form>
+            </section>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'core/js/validacion_productos.js'%}"></script>
+{% endblock script %}
+

@@ -1,0 +1,177 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <!-- Contenido principal -->
+    <main role="main">
+        <div class="container">
+            <section class="text center">
+                <h1 class="cute-font-regular neon">MANTENEDOR DE USUARIOS</h1>
+                <br>
+                <form method="POST" id="formulario_usuarios" action="">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- Campos del registro usuario -->
+                            <div class="col-sm-12 col-md-10 col-lg-8">
+                                <div class="form-group">
+                                    <label for="id" class="letra">ID</label>
+                                    <input type="number" class="form-control" id="id" name="id" placeholder="Ingrese el id" value="" />
+                                </div>
+                                <br>
+                                <div class="md-3 fw-bold letra">Tipo de Usuario.</div>
+                                <div class="opcion">
+                                    <input type="radio" id="cliente" name="tipo_usuario" value="cliente" class="form-check-input" checked>
+                                    <label for="cliente" class="letra">Cliente</label><br>
+                                </div>
+                                <div class="opcion">
+                                    <input type="radio" id="admin" name="tipo_usuario" value="admin" class="form-check-input">
+                                    <label for="admin" class="letra">Administrador</label><br>
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    <label for="rut" class="form-label letra">RUT</label>
+                                    <input type="text" class="form-control" id="rut" placeholder="Ej 11111111-1" name="rut" value="" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nombre" class="form-label letra">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese Nombre." name="nombre" value="" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="apellido" class="form-label letra">Apellido</label>
+                                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese Apellido." name="apellido" value="" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="correo" class="form-label letra">Correo</label>
+                                    <input type="email" class="form-control" id="correo" placeholder="Ingrese Correo." name="correo" value="" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="direc" class="form-label letra">Dirección</label>
+                                    <textarea class="form-control" id="direc" rows="3" placeholder="Ingrese Dirección." name="direc"></textarea>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contraseña" class="form-label letra">Contraseña</label>
+                                    <div class="input-group-append">
+                                        <button class="btn boton_registro boton_registro:hover" type="button">Generar contraseña</button>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="mb-3 form-check" form check>
+                                    <input class="form-check-input" type="checkbox" value="" id="subscripcion">
+                                    <label class="form-check-label letra" for="subscripcion">
+                          <strong>
+                            Subscripción
+                          </strong>
+                        </label>
+                                    <div id="subscripcionHelp" class="form-help letra">
+                                        Deseo suscribirme a PenguinPixel con un pago de $3000 mensuales y obtener un descuento del 5% en mis compras
+                                    </div>
+                                    <div></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-2">
+                                        <button class="btn boton_registro boton_registro:hover" type="submit">Guardar</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn boton_registro boton_registro:hover" type="reset">Nuevo</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn boton_registro boton_registro:hover" type="submit">Eliminar</button>
+                                    </div>
+                                    <br><br><br>
+
+                                </div>
+                            </div>
+                            <!-- foto de perfil -->
+                            <div class="col-sm-12 col-md-8 col-lg-4">
+                                <br>
+                                <div class="image-container">
+                                    <img src="{% static 'core/img/perfil.webp'%}" alt="" class="user-image">
+                                    <input type="file" class="form-control file-input">
+                                </div>
+                            </div>
+                            <!-- tabla godines -->
+                            <table class="table table-hover">
+                                <thead>
+                                    <th scope="col" class="text-center"></th>
+                                    <th scope="col" class="text-center d-none d-lg-block d-lg-table-cell">ID</th>
+                                    <th scope="col" class="text-center">Tipo usuario</th>
+                                    <th scope="col" class="text-center">RUT</th>
+                                    <th scope="col" class="text-center">Nombres</th>
+                                    <th scope="col" class="text-center">Apellidos</th>
+                                    <th scope="col" class="text-center">Correo</th>
+                                    <th scope="col" class="text-center">Dirección</th>
+                                    <th scope="col" class="text-center">Con notificaciones</th>
+                                    <th scope="col">imagen</th>
+                                </thead>
+                                <tbody>
+                                    <!-- Primera linea -->
+                                    <tr>
+                                        <td scope="row" class="text-center"></td>
+                                        <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">34</td>
+                                        <td scope="col" class="text-center">Cliente</td>
+                                        <td scope="col" class="text-center">21.037.761-1</td>
+                                        <td scope="col" class="text-center">Diego</td>
+                                        <td scope="col" class="text-center">Pool</td>
+                                        <td scope="col" class="text-center">dpool@gmail.com</td>
+                                        <td scope="col" class="text-center">Merced 186</td>
+                                        <td scope="col" class="text-center">Sí</td>
+                                        <td scope="col">
+                                            <img src="{% static 'core/img/DiegoCristo.png'%}" alt="Dieweko" style="width: 30px; height: auto;">
+                                        </td>
+                                    </tr>
+                                    <!-- Segunda linea -->
+                                    <tr>
+                                        <td scope="row" class="text-center"></td>
+                                        <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">35</td>
+                                        <td scope="col" class="text-center">Admin</td>
+                                        <td scope="col" class="text-center">20.388.099-5</td>
+                                        <td scope="col" class="text-center">Fabián</td>
+                                        <td scope="col" class="text-center">Gonzalezz</td>
+                                        <td scope="col" class="text-center">fzz@gmail.com</td>
+                                        <td scope="col" class="text-center">Iquique 3333</td>
+                                        <td scope="col" class="text-center">No</td>
+                                        <td scope="col">
+                                            <img src="{% static 'core/img/fabian.jpg'%}" alt="Fabiaan" style="width: 30px; height: auto;">
+                                        </td>
+                                    </tr>
+                                    <!-- Tercera linea pa -->
+                                    <tr>
+                                        <td scope="row" class="text-center"></td>
+                                        <td scope="col" class="text-center">36</td>
+                                        <td scope="col" class="text-center">Cliente</td>
+                                        <td scope="col" class="text-center">21.662.338-1</td>
+                                        <td scope="col" class="text-center">Alfredo</td>
+                                        <td scope="col" class="text-center">Elmo</td>
+                                        <td scope="col" class="text-center">sdvives@gmail.com</td>
+                                        <td scope="col" class="text-center">Iquique 3344</td>
+                                        <td scope="col" class="text-center">Sí</td>
+                                        <td scope="col">
+                                            <img src="{% static 'core/img/elmo.jpg'%}" alt="Elmardo" style="width: 30px; height: auto;">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'core/js/validacion_usuarios.js'%}"></script>
+{% endblock script %}

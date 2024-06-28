@@ -1,0 +1,213 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <h1 class="cute-font-regular neon">BOLETA</h1>
+
+    <div class="container-fluid">
+        <!-- Título y estado de la boleta -->
+        <div class="row">
+            <!-- Título de la boleta -->
+            <div class="col letra">
+                <h2>
+                    Detalle de la boleta 535
+                </h2>
+            </div>
+            <!-- Estado de la boleta -->
+            <div class="col letra">
+                <table id="boleta_tabla_estados">
+                    <tr>
+                        <td>
+                            <img src="{% static 'core/img/carrito_neon.png'%}" width="100px" alt="">
+                        </td>
+                        <td>
+                            <img src="{% static 'core/img/despacho.png'%}" width="100px" alt="">
+                        </td>
+                        <td>
+                            <img src="{% static 'core/img/entregadoo.png'%}" width="75px" alt="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Vendido <br> 11:00 <br> 10/04/2024
+                        </td>
+                        <td>
+                            Despachado <br> 12:00 <br> 11/04/2024
+                        </td>
+                        <td>
+                            Entregado <br> 18:00 <br> 11/04/2024
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>%Subscriptor</th>
+                            <th>%Oferta</th>
+                            <th>%Desc Total</th>
+                            <th>Descuentos</th>
+                            <th>Precio a pagar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RPG</td>
+                            <td>The Witcher 3: Wild Hunt</td>
+                            <td>$45.000</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>$6.750</td>
+                            <td>$38.250</td>
+                        </tr>
+                        <tr>
+                            <td>Aventura</td>
+                            <td>Uncharted 4: A Thief's End</td>
+                            <td>$55.000</td>
+                            <td>5%</td>
+                            <td>15%</td>
+                            <td>20%</td>
+                            <td>$11.000</td>
+                            <td>$44.000</td>
+                        </tr>
+                        <tr>
+                            <td>Acción</td>
+                            <td>Red Dead Redemption 2</td>
+                            <td>$50.000</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>$7.500</td>
+                            <td>$42.500</td>
+                        </tr>
+                        <tr>
+                            <td>Deportes</td>
+                            <td>FIFA 21</td>
+                            <td>$40.000</td>
+                            <td>5%</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>$4.000</td>
+                            <td>$36.000</td>
+                        </tr>
+                        <tr>
+                            <td>Shooter</td>
+                            <td>Call of Duty: Modern Warfare</td>
+                            <td>$48.000</td>
+                            <td>5%</td>
+                            <td>20%</td>
+                            <td>25%</td>
+                            <td>$12.000</td>
+                            <td>$36.000</td>
+                        </tr>
+                        <tr>
+                            <td>RPG</td>
+                            <td>Final Fantasy XV</td>
+                            <td>$55.000</td>
+                            <td>5%</td>
+                            <td>15%</td>
+                            <td>20%</td>
+                            <td>$11.000</td>
+                            <td>$44.000</td>
+                        </tr>
+                        <tr>
+                            <td>Aventura</td>
+                            <td>The Legend of Zelda: Breath of the Wild</td>
+                            <td>$60.000</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>$9.000</td>
+                            <td>$51.000</td>
+                        </tr>
+                        <tr>
+                            <td>Estrategia</td>
+                            <td>Civilization VI</td>
+                            <td>$35.000</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                            <td>$5.250</td>
+                            <td>$29.750</td>
+                        </tr>
+                        <tr>
+                            <td>Acción</td>
+                            <td>Assassin's Creed Odyssey</td>
+                            <td>$42.000</td>
+                            <td>5%</td>
+                            <td>15%</td>
+                            <td>20%</td>
+                            <td>$8.400</td>
+                            <td>$33.600</td>
+                        </tr>
+                        <tr>
+                            <td>Deportes</td>
+                            <td>NBA 2K21</td>
+                            <td>$50.000</td>
+                            <td>5%</td>
+                            <td>5%</td>
+                            <td>10%</td>
+                            <td>$5.000</td>
+                            <td>$45.000</td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="font-weight: bold">
+                                Precio sin IVA
+                            </td>
+                            <td>
+                                <input readonly type="text" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="font-weight: bold">
+                                Valor del IVA (19%)
+                            </td>
+                            <td>
+                                <input readonly type="text" name="" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="font-weight: bold">
+                                Total a pagar
+                            </td>
+                            <td>
+                                <input readonly type="text" name="" id="">
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
