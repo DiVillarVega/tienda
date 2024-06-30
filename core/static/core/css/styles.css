@@ -3,6 +3,10 @@
   border: 1px solid red;
 }  */
 
+.cuadro_blaco{
+  background-color: white;
+}
+
 .error {
   color: red;
   font-weight: bold;
@@ -61,6 +65,12 @@ body {
 .letra{
   color: rgb(255, 255, 255);
 }
+
+.white-text{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
 
 .letrazul{
   color: rgb(56, 85, 251);

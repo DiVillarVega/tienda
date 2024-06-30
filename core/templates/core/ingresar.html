@@ -10,51 +10,20 @@
                 <h1 class="cute-font-regular neon">INGRESAR</h1>
                 <br>
 
-                <!-- Formulario de Ingreso de cliente -->
-                <form method="POST" id="formulario_login" action="">
-                    <div class="cuadro_login">
-
-                        {% csrf_token %} 
-                        <div>
-                            <!-- campos del ingreso de usuario -->
-                            <div>
-
-                                <div class="form-group">
-                                    <label for="correo" class="letra">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="correo" placeholder="Ingrese correo" name="correo" value="" />
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="password" class="letra">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Ingrese contraseña" name="password" value="" />
-                                </div>
-
-
+                            <div class="row justify-content-center ">
+                                <form id="form" method="POST" class="col-5 border border-3 p-4 white-text">
+                            
+                                  {% csrf_token %} 
+                                  
+                                  <!-- Botones -->
+                                  {{ form|as_bootstrap_form }}
+                                  
+                                  <div class="text-center mt-4">
+                                    <button type="submit" class="btn btn-primary boton_registro"> Ingresar </button>
+                                  </div>
+                                </form>
                             </div>
-                            <br>
-                            <div>
-                                <div class="col text-center">
-                                    <button type="submit" class="btn btn-primary boton_registro">Ingresar</button>
-                                    <br><br>
-                                    <a class="letra" href="{% url 'registro' %}">Registrarse</a>
-                                    <a class="letra" href="{% url 'registro' %}">Olvide mi contraseña</a>
 
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="text-center">
-                        <br><br>
-                        <a class="letra" href="{% url 'miscompras' %}">Presiona aqui para simular que ingresaste como Cliente</a>
-                        <br><br><br>
-                        <a class="letra" href="">Presiona aqui para simular que ingresaste como Administrador</a>
-                        <br><br>
-                    </div>
-
-                </form>
             </section>
         </div>
     </main>
