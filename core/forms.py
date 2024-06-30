@@ -89,3 +89,7 @@ class PerfilForm(ModelForm):
     class Meta:
         model = Perfil
         fields = '__all__'
+
+    class Meta:
+        model = Perfil
+        fields = '__all__'

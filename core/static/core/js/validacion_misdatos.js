@@ -50,89 +50,88 @@ $(document).ready(function() {
      document.getElementById('rut').addEventListener('keyup', function(e) {
        e.target.value = e.target.value.toUpperCase();
      });
+
+  // Asignar placeholders para ayudar a los usuarios
+  $('#id_username').attr('placeholder', 'Ej: cgomezv, cevans, sjohasson');
+  $('#id_first_name').attr('placeholder', 'Ej: Cristián, Chris, Scarlett');
+  $('#id_last_name').attr('placeholder', 'Ej: Gómez Vega, Evans, Johansson');
+  $('#id_email').attr('placeholder', 'Ej: cevans@marvels.com');
+  $('#id_rut').attr('placeholder', 'Ej: 11111111-1 (sin puntos y con guión)');
+  $('#id_direccion').attr('placeholder', 'Calle, n° casa o edificio, n° departamento o piso\n'
+    + 'localidad o ciudad, código postal o de área\n'
+    + 'estado o provincia, ciudad, país');
+
+  // Agregar una validación por defecto para que la imagen la exija como campo obligatorio
+  $.extend($.validator.messages, {
+    required: "Este campo es requerido",
+  });     
   
 
   // Validar formulario de registro
-  $('#formulario_misdatos').validate(
+  $('#form').validate(
     {
       rules: {
-        rut: {
+        'username': {
+          required: true,
+        },        
+        'rut': {
           required: true,
           rutChileno: true
         },
-        nombre: {
+        'first_name': {
           required: true,
           soloLetras: true,
           minlength: 3,
           maxlength: 50
         },
-        apellido: {
+        'last_name': {
           required: true,
           soloLetras: true,
-          minlength: 5,
+          minlength: 3,
           maxlength: 50
         },
-        correo: {
+        'email': {
           required: true,
           emailCompleto: true,
           email: true
         },
-        direccion: {
+        'direccion': {
           required: true,
-          minlength: 10,
-          maxlength: 80,
         },
-        password: {
-          required: true,
-          minlength: 8,
-          maxlength: 15,
-        },
-        password2: {
-          required: true,
-          minlength: 8,
-          maxlength: 15,
-          equalTo: '#password'
-        }
       },
       messages: {
-        rut: {
+        'username': {
+          required: 'Debe ingresar un nombre de usuario',
+        },
+        'rut': {
           required: "El RUT es un campo requerido",
           rutChileno: "El RUT no es válido (escriba sin puntos y con guión)"
         },        
-        nombre: {
+        'first_name': {
           required: 'El nombre es un campo requerido',
           minlength: 'El nombre debe tener un mínimo de 3 caracteres',
           maxlength: 'El nombre debe tener un máximo de 50 caracteres',
           soloLetras: "El nombre sólo puede contener letras y espacios en blanco",
         },
-        apellido: {
+        'last_name': {
           required: 'El apellido es un campo requerido',
           minlength: 'El apellido debe tener un mínimo de 5 caracteres',
           maxlength: 'El apellido debe tener un máximo de 50 caracteres',
           soloLetras: "El nombre sólo puede contener letras y espacios en blanco",
         },
-        correo: {
+        'email': {
           required: 'El correo es un campo obligatorio',
           emailCompleto: 'Ingrese un correo válido',
           email: 'Ingrese un correo válido'
         },
-        direccion: {
+        'direccion': {
           required: 'La dirección es un campo requerido',
-          minlength: 'La dirección debe tener un mínimo de 10 caracteres',
-          maxlength: 'La dirección debe tener un máximo de 80 caracteres'
         },
-        password: {
-          required: 'La contraseña es un campo requerido',
-          minlength: 'La contraseña debe tener un mínimo de 8 caracteres',
-          maxlength: 'La contraseña debe tener un máximo de 15 caracteres', 
-        },
-        password2: {
-          required: 'Repita la contraseña',
-          minlength: 'La contraseña debe tener un mínimo de 8 caracteres',
-          maxlength: 'La contraseña debe tener un máximo de 15 caracteres', 
-          equalTo: 'Las contraseñas deben ser iguales'
-        }
-      }
+      },
+      errorPlacement: function(error, element) {
+        error.insertAfter(element); // Inserta el mensaje de error después del elemento
+        error.addClass('error-message'); // Aplica una clase al mensaje de error
+      },      
     }
   );
 });

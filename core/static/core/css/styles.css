@@ -46,6 +46,16 @@ body {
   0 0 1cap rgba(0,178,255,1);
 }
 
+.cuadro_white {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: #ffffff;
+  padding: 40px;
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
 .cuadro_neon {
   box-shadow:
   0 0 10px rgb(255, 255, 255),
@@ -75,8 +85,6 @@ body {
 .letrazul{
   color: rgb(56, 85, 251);
 }
-
-
 
 .cute-font-regular {
   font-family: "Cute Font", sans-serif;
@@ -118,9 +126,6 @@ body {
   0 0 5px rgba(0,178,255,1),
   0 0 20px rgba(38,104,127,1);
 }
-
-
-
 
 #fotoFicha{
   width: 200px;
@@ -221,8 +226,8 @@ body {
 }
 
 .letra-disponible{
-  color: rgb(0, 255, 0);
-  font-size: 25px;
+  color: rgb(0, 192, 0);
+  font-size: 18px;
   display: inline-block;
   font-weight: bold;
 }
@@ -251,7 +256,7 @@ body {
 
 .letra-agotado{
   color: rgb(255, 50, 50);
-  font-size: 25px;
+  font-size: 18px;
   display: inline-block;
   font-weight: bold;
 }

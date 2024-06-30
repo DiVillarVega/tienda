@@ -369,7 +369,7 @@ def obtener_info_producto(producto_id):
     # cuya relación con la tabla de DetalleBoleta esté en NULL, osea los que no han sido vendidos.
     # Si un producto de la Bodega estuviera vendido, entonces tendría su relación "detalleboleta"
     # con un valor diferente de NULL, ya que el campo "bodega_id" de la tabla DetalleBoleta
-    # tendría el valor del id de Bodega del producto que se vendió.
+    # tendría el valor del id de Bodega del producto que se vendió. 
     stock = Bodega.objects.filter(producto_id=producto_id).exclude(
         detalleboleta__isnull=False).count()
 
@@ -377,7 +377,7 @@ def obtener_info_producto(producto_id):
     con_oferta = f'<span class="text-primary"> EN OFERTA {
         producto.descuento_oferta}% DE DESCUENTO </span>'
     sin_oferta = '<span class="text-success"> DISPONIBLE EN BODEGA </span>'
-    agotado = '<span class="text-danger"> AGOTADO </span>'
+    agotado = '<span class="letra-agotado"> AGOTADO </span>'
 
     if stock == 0:
         estado = agotado
@@ -407,9 +407,9 @@ def obtener_html_precios_producto(producto):
     normal = f'Precio: {formatear_dinero(precio_normal)}'
     tachar = f'Precio: <span class="text-decoration-line-through"> {
         formatear_dinero(precio_normal)} </span>'
-    oferta = f'Oferta: <span class="text-success"> {
+    oferta = f'Oferta: <span class="letra-disponible"> {
         formatear_dinero(precio_oferta)} </span>'
-    subscr = f'Subscrito: <span class="text-danger"> {
+    subscr = f'Subscrito: <span class="letra-agotado"> {
         formatear_dinero(precio_subscr)} </span>'
 
     if hay_desc_oferta > 0:
