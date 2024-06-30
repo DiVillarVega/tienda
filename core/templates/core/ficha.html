@@ -12,7 +12,12 @@
         <br>
         <div>
         {% comment %} {{ imagen }} <br> {% endcomment %}
-        <img src="{% static producto.imagen.url %}" alt="{{ producto.nombre }}"><br>
+
+        <img
+        class="card-img-top thumbnail-product"
+        src="/media/{{ producto.imagen }} "
+        alt="" />
+
         {{ nombre }} <br>
         {{ html_estado|safe }}  <br>
         {{ html_precio|safe }}  <br>
