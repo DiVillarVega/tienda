@@ -49,10 +49,19 @@ class IngresarForm(Form):
 # muestra los campos: 
 #    'username', 'first_name', 'last_name', 'email', 'password1' y 'password2'
 # renombra la etiqueta del campo 'email' por 'E-mail'
+
+# class RegistroUsuarioForm(UserCreationForm):
+#    class Meta:
+#         model = User
+#         fields = '__all__'
+
 class RegistroUsuarioForm(UserCreationForm):
    class Meta:
         model = User
-        fields = '__all__'
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        labels = {
+            'email': 'E-mail',
+        }
 
 # PARA LA PAGINA DE REGISTRO DE NUEVO CLIENTE Y MIS DATOS:
 # Crear RegistroPerfilForm como una clase que hereda de ModelForm
@@ -65,7 +74,12 @@ class RegistroUsuarioForm(UserCreationForm):
 class RegistroPerfilForm(ModelForm):
     class Meta:
         model = Perfil
-        fields = '__all__'
+        fields = ['rut', 'direccion', 'subscrito', 'imagen']
+        exclude = ['tipo_usuario']
+        widgets = {
+            'direccion': forms.Textarea(),
+            'imagen': forms.FileInput(),
+        }
 
 # PARA LA PAGINA MIS DATOS Y MANTENEDOR DE USUARIOS:
 # Crear UsuarioForm como una clase que hereda de ModelForm
