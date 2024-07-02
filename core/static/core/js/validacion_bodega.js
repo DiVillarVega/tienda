@@ -1,5 +1,25 @@
 $(document).ready(function() {
   
+  // Asignar placeholders para ayudar a los usuarios
+  $('#id_cantidad').attr('placeholder', 'Ej: 10, agregará 10 productos en la bodega');
+
+  // Cambiar el texto del combo de categoría por "Seleccione una categoría"
+  var select = document.querySelector('select[name="categoria"]');
+    if (select) {
+      var defaultOption = select.querySelector('option[value=""]');
+      if (defaultOption) {
+          defaultOption.text = "Seleccione una categoría";
+      }
+  }
+  // Cambiar el texto del combo de producto por "Seleccione un producto"
+  var select = document.querySelector('select[name="producto"]');
+  if (select) {
+      var defaultOption = select.querySelector('option[value=""]');
+      if (defaultOption) {
+          defaultOption.text = "Seleccione un producto";
+      }
+  }
+
   // Agregar método de validación para que un campo sólo acepte 
   // letras y espacios en blanco, pero no números ni símbolos,
   // ideal para campos como nombres y apellidos
@@ -18,38 +38,49 @@ $(document).ready(function() {
   }, "Sólo se permiten números.");
 
   // Validar formulario de bodega
-  $('#formulario_bodega').validate(
+  $('#form').validate(
     {
       rules: {
-        categoria:{
-          required: true
+        'categoria':{
+          required: true,
+          min: 1,
         },
-        cantidad: {
+        'producto': {
           required: true,
           min: 1
         },
-        titulo: {
+        'cantidad': {
           required: true,
-          minlength: 1,
-          maxlength: 60
+          digits: true,
+          number: true,
+          min: 1
         }
       },
       messages: {
-        categoria: {
-          required: "La categoría es un campo requerido."
-        },
-        cantidad: {
-          required: "La cantidad es un campo requerido.",
-          min: "La cantidad debe ser mayor a 0."
-        },
-        titulo: {
-          required: "El título es un campo requerido.",
-          minlength: "El título debe tener un mínimo de 1 caracter.",
-          maxlength: "El título debe tener un máximo de 60 caracteres."
-        }
-      }
-    }
-  );
+        'categoria': {
+          required: 'Debe seleccionar la categoría del producto',
+          min: 'Debe seleccionar la categoría del producto',
+      },
+      'producto': {
+          required: 'Debe seleccionar el nombre del producto',
+          min: 'Debe seleccionar el nombre del producto',
+      },
+      'cantidad': {
+          required: 'Debe ingresar la cantidad',
+          number: 'Debe ingresar un número',
+          digits: 'Debe ingresar un número entero',
+          min: 'Debe ingresar un número mayor que cero',
+      },
+  },
+  errorPlacement: function(error, element) {
+      error.insertAfter(element); // Inserta el mensaje de error después del elemento
+      error.addClass('error-message'); // Aplica una clase al mensaje de error
+  },
+});
+
+var sin_imagen = '/static/core/img/sin-imagen.png';
+
+
   // COMBOBOX DEPENDIENTES PARA CATEGORIA Y PRODUCTO
   $("#id_categoria").change(function() {
     var categoriaId = $(this).val();

@@ -13,121 +13,65 @@
             <section class="text center">
                 <h1 class="cute-font-regular neon">MANTENEDOR DE BODEGA</h1>
                 <br>
-                <form method="POST" id="formulario_bodega" action="">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <!-- campos mantenedor bodega -->
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <!-- Categoría -->
-                                <div class="md-3 fw-bold">
-                                    <label for="categoria" class="form-label letra">Categoría</label> <br>
-                                    <div class="dropdown" id="categoria" name="categoria">
-                                        <select id="categoria" class="form-control" name="categoria">
-                      <option value="">Seleccione una categoría</option>
-                      <option value="1">Acción</option>
-                      <option value="2">Hack and slash</option>
-                      <option value="3">Rol</option>
-                      <option value="4">Simulación</option>
-                      <option value="5">Disparos en primera persona</option>
-                      <option value="6">Defensa de Torres</option>
-                      
-                  </select>
-                                    </div>
-                                </div>
-                                <br>
-                                <!-- Título -->
-                                <div class="md-3 fw-bold">
-                                    <label for="titulo" class="form-label letra">Título</label> <br>
-                                    <div class="dropdown" id="titulo">
-                                        <select id="titulo" class="form-control" name="titulo">
-                    <option value="">Seleccione un título</option>
-                    <option value="1">Bread & Fred</option>
-                    <option value="2">Cyberpunk 2077</option>
-                    <option value="3">Pokemon Escarlata y Pokemon Púrpura</option>
-                    <option value="4">Hi-Fi Rush</option>
-                    <option value="5">God Of War: Ragnarok</option>
-                    <option value="6">Doom: Eternal</option>
-                    <option value="7">Final Fantasy</option>
-                    <option value="8">The Witcher 3: Wild Hunt</option>
-                    <option value="9">Uncharted 4: A Thief's End</option>
-                    <option value="10">Red Dead Redemption 2</option>
-                    <option value="11">FIFA 21</option>
-                    <option value="12">Call of Duty: Modern Warfare</option>
-                  </select>
-                                    </div>
-                                </div>
-                                <br>
 
-                                <!-- Cantidad -->
-                                <div class="md-3 fw-bold">
-                                    <div class="form-group">
-                                        <label for="cantidad" class="form-label letra">Cantidad</label> <br>
-                                        <input type="number" class="form-control-md" id="cantidad" name="cantidad" placeholder="Ingrese número">
-                                    </div>
-                                </div>
-                                <br>
-                                <!-- Botones -->
-                                <button type="submit" class="btn btn-primary boton_registro">Agregar</button>
-                                <button type="reset" class="btn btn-primary boton_registro">Nuevo</button>
+                
+                <form id="form" method="POST" class="white-text">
+                    {% csrf_token %}
+                    <div class="container">
+                        <div class="row">
+                            <!-- Columna para los campos del formulario -->
+                            <div class="col-md-8">
+                                {{ form|as_bootstrap_form }}
                             </div>
-                            <!-- foto de perfil -->
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                <br>
-                                <div class="image-container">
-                                    <img src="{% static 'core/img/joystick.jpg'%}" alt="" class="user-image"/>
-                                </div>
+                            <!-- Columna para la imagen -->
+                            <div class="col-md-4 text-center">
+                                <img id="cuadro-imagen" src="{% static 'core/img/sin_imagen.jpg' %}" class="img-fluid">
                             </div>
-                            <!-- fin foto perfil -->
                         </div>
-                        <br>
                     </div>
-                    <table class="table table-hover">
+                </form>
+                <br><br>
+
+                <!-- AREA DE TABLA DE PRODUCTOS -->
+            
+                {% if productos %}
+                    
+                    <table id="tabla-principal" class="table table-hover">
                         <thead>
-                            <th scope="col" class="text-center"></th>
-                            <th scope="col" class="text-center d-none d-lg-block d-lg-table-cell">ID</th>
-                            <th scope="col" class="text-center">Categoría</th>
-                            <th scope="col" class="text-center">Título</th>
-                            <th scope="col" class="text-center">Estado</th>
-                            <th scope="col" class="text-center">Opciones</th>
+                            <!-- AREA DE TITULOS DE LA TABLA -->
+                            <tr class>
+                                <th> Imagen </th>
+                                <th> Nombre </th>
+                                <th> Acción </th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <!-- Primera linea -->
-                            <tr>
-                                <td scope="row" class="text-center"></td>
-                                <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">24</td>
-                                <td scope="col" class="text-center">Acción</td>
-                                <td scope="col" class="text-center">Cyberpunk 2077</td>
-                                <td scope="col" class="text-center">Vendido</td>
-                                <td scope="col" class="text-center">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Eliminar
-                                </td>
-                            </tr>
-            <!-- Segunda linea -->
-            <tr>
-              <td scope="row" class="text-center"></td>
-              <td scope="col" class="text-center d-none d-lg-block d-lg-table-cell">30</td>
-              <td scope="col" class="text-center">Rol</td>
-              <td scope="col" class="text-center">Pokemon escarlata y Pokemon Purpura</td>
-              <td scope="col" class="text-center">En bodega</td>
-              <td scope="col" class="text-center">
-                <button type="button" href="#" class="btn btn-primary btn-sm">Eliminar
-                </button>
-                                </td>
-                            </tr>
-                            <!-- Tercera linea-->
-                            <tr>
-                                <td scope="row" class="text-center"></td>
-                                <td scope="col" class="text-center">18</td>
-                                <td scope="col" class="text-center">Hack and slash</td>
-                                <td scope="col" class="text-center">Hi-Fi Rush</td>
-                                <td scope="col" class="text-center">Entregado</td>
-                                <td scope="col" class="text-center">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Eliminar
-                                </td>
-                            </tr>
-            </tbody>
-         </table>
-        </form>
+                            <!-- AREA DE FILAS DE PRODUCTOS -->
+                            {% for producto in productos %}
+                                <tr>
+                                    <td>
+                                        <img src="/media/{{ producto.imagen }}" class="producto-sm" alt="">
+                                    </td>
+                                    <td>                                                                                
+                                        {{ producto.nombre }}
+                                    </td>
+
+                                    <!-- Botón de eliminar producto de bodega, se activa sólo para productos no vendidos -->
+                                    <td>
+                                        {% if producto.estado == 'En bodega' %}
+                                            <a href="{% url 'eliminar_producto_en_bodega' producto.bodega_id %}" 
+                                                class="btn btn-danger btn-sm"> Eliminar </a>
+                                        {% else %}
+                                            <a href="{% url 'eliminar_producto_en_bodega' producto.bodega_id %}" 
+                                                class="btn btn-primary btn-sm disabled"> Eliminar </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            
+                {% endif %}
       </section>
     </div>
   </main>

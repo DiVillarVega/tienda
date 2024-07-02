@@ -170,6 +170,12 @@ body {
 		0 0 45px rgba(38,104,127,1);
 }
 
+#cuadro-imagen {
+  max-width: 236px;
+  max-height: 199px;
+  padding: 3px;
+  border: 2px solid gray;
+}
 
 
 #fotoFicha{
@@ -374,4 +380,9 @@ body {
 .letra-boleta-anulada {
   color: rgb(255, 50, 50); 
   font-weight: bold;
+}
+
+.producto-sm {
+  width: 50px; /* Ajusta el ancho según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
 }
