@@ -183,9 +183,27 @@ def misdatos(request):
 def boleta(request, nro_boleta):
 
     # CREAR: lógica para ver la boleta
+    boleta = None
+    detalle_boleta = None
+
+    if Boleta.objects.filter(nro_boleta=nro_boleta).exists():
+
+        boleta = Boleta.objects.get(nro_boleta=nro_boleta)
+        boleta_es_del_usuario = Boleta.objects.filter(nro_boleta=nro_boleta, cliente=request.user.perfil).exists()
+        if boleta_es_del_usuario or request.user.is_staff:
+            detalle_boleta = DetalleBoleta.objects.filter(boleta=boleta)
+        else:
+            messages.error(request, f'Lo siento la boleta N° {nro_boleta} pertenece a otro usuario.')
+            boleta = None
+    else:
+        messages.error(request, f'La boleta N° {nro_boleta} no existe.')
+
 
     # CREAR: variable de contexto para enviar boleta y detalle de la boleta
-    context = {}
+    context = {
+        'boleta': boleta,
+        'detalle_boleta': detalle_boleta,
+    }
 
     return render(request, 'core/boleta.html', context)
 
@@ -194,9 +212,23 @@ def boleta(request, nro_boleta):
 def ventas(request):
 
     # CREAR: lógica para ver las ventas
+    boletas = Boleta.objects.all()
+    historial= []
+    for boleta in boletas:
+        boleta_historial= {
+            'nro_boleta': boleta.nro_boleta,
+            'nom_cliente': f'{boleta.cliente.usuario.first_name} {boleta.cliente.usuario.last_name}',
+            'fecha_venta': boleta.fecha_venta,
+            'fecha_despacho': boleta.fecha_despacho,
+            'fecha_entrega': boleta.fecha_entrega,
+            'subscrito': 'Sí' if boleta.cliente.subscrito else 'No',
+            'total_a_pagar': boleta.total_a_pagar,
+            'estado': boleta.estado,
+        }
+        historial.append(boleta_historial)
 
     # CREAR: variable de contexto para enviar historial de ventas
-    context = {}
+    context = {'historial': historial}
 
     return render(request, 'core/ventas.html', context)
 
