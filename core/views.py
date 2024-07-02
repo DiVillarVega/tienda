@@ -140,19 +140,19 @@ def registro(request):
 
     if request.method == 'POST':
 
-        # CREAR: usar RegistroUsuarioForm para obtener datos del formulario
-        # CREAR: usar RegistroPerfilForm para obtener datos del formulario
-        # CREAR: lógica para crear usuario
-        pass
+        form_usuario = RegistroUsuarioForm(request.POST)
+        form_perfil = RegistroPerfilForm(request.POST, request.FILES)
 
     if request.method == 'GET':
 
-        # CREAR: un formulario RegistroUsuarioForm vacío
-        # CREAR: un formulario RegistroPerfilForm vacío
-        pass
+        form_usuario = RegistroUsuarioForm()
+        form_perfil = RegistroPerfilForm()
 
     # CREAR: variable de contexto para enviar formulario de usuario y perfil
-    context = {}
+    context = {
+        'form_usuario': form_usuario,
+        'form_perfil': form_perfil,
+    }
 
     return render(request, 'core/registro.html', context)
 
