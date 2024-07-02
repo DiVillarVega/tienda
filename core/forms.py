@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, Form
+from django.forms import ModelForm, Form, Textarea, FileInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Categoria, Producto, Perfil
@@ -102,7 +102,11 @@ class UsuarioForm(ModelForm):
 class PerfilForm(ModelForm):
     class Meta:
         model = Perfil
-        fields = '__all__'
+        fields = ['tipo_usuario', 'rut', 'direccion', 'subscrito', 'imagen']
+        widgets = {
+            'direccion': Textarea(attrs={'cols': 80, 'rows': 20}),
+            'imagen': FileInput(),
+        }
 
     class Meta:
         model = Perfil
