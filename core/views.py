@@ -333,10 +333,25 @@ def eliminar_producto_en_bodega(request, bodega_id):
 @user_passes_test(es_cliente_autenticado_y_activo)
 def miscompras(request):
 
-    # CREAR: lógica para ver las compras del cliente
+    usuario_actual = request.user
+    
+    # Filtrar las boletas por el usuario autenticado
+    boletas = Boleta.objects.filter(cliente__usuario=usuario_actual)
+    historial = []
+    for boleta in boletas:
+        boleta_historial = {
+            'nro_boleta': boleta.nro_boleta,
+            'fecha_venta': boleta.fecha_venta,
+            'fecha_despacho': boleta.fecha_despacho,
+            'fecha_entrega': boleta.fecha_entrega,
+            'total_a_pagar': boleta.total_a_pagar,
+            'estado': boleta.estado,
+            # Aquí puedes agregar cualquier otra opción que desees mostrar en "Opciones"
+        }
+        historial.append(boleta_historial)
 
-    # CREAR: variable de contexto para enviar el historial de compras del cliente
-    context = {}
+    # Crear variable de contexto para enviar historial de compras del usuario
+    context = {'historial': historial}
 
     return render(request, 'core/miscompras.html', context)
 

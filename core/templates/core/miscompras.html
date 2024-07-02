@@ -11,182 +11,43 @@
         <div class="row">
             <div class="col">
 
-                <table class="table table-hover">
+                <table id="tabla-principal" class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Nro Boleta</th>
-                            <th>Fecha venta</th>
-                            <th>Fecha despacho</th>
-                            <th>Fecha entrega</th>
-                            <th>Monto total</th>
-                            <th>Estado actual</th>
-                            <th>Opciones</th>
+                            <th> Nro boleta </th>
+                            <th> Venta </th>
+                            <th> Despacho </th>
+                            <th> Entrega </th>
+                            <th> Monto total </th>
+                            <th> Estado actual </th>
+                            <th> Opciones </th>
                         </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
-                        <!-- Ejemplo 1 -->
-                        <tr>
-                            <td>Nro boleta: 987</td>
-                            <td>Fecha venta: 03/06/2024</td>
-                            <td>Fecha de despacho: 05/06/2024</td>
-                            <td>Fecha de entrega: 06/06/2024</td>
-                            <td>Monto total: $40.500</td>
-                            <td>Estado actual: Entregado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 2 -->
-                        <tr>
-                            <td>Nro boleta: 432</td>
-                            <td>Fecha venta: 22/07/2024</td>
-                            <td>Fecha de despacho: 24/07/2024</td>
-                            <td>Fecha de entrega: 25/07/2024</td>
-                            <td>Monto total: $55.250</td>
-                            <td>Estado actual: Despachado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 3 -->
-                        <tr>
-                            <td>Nro boleta: 765</td>
-                            <td>Fecha venta: 11/08/2024</td>
-                            <td>Fecha de despacho: 13/08/2024</td>
-                            <td>Fecha de entrega: 13/08/2024</td>
-                            <td>Monto total: $33.750</td>
-                            <td>Estado actual: Vendido</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 4 -->
-                        <tr>
-                            <td>Nro boleta: 246</td>
-                            <td>Fecha venta: 29/09/2024</td>
-                            <td>Fecha de despacho: 30/09/2024</td>
-                            <td>Fecha de entrega: 01/10/2024</td>
-                            <td>Monto total: $48.900</td>
-                            <td>Estado actual: Entregado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 5 -->
-                        <tr>
-                            <td>Nro boleta: 879</td>
-                            <td>Fecha venta: 17/10/2024</td>
-                            <td>Fecha de despacho: 18/10/2024</td>
-                            <td>Fecha de entrega: 18/10/2024</td>
-                            <td>Monto total: $42.150</td>
-                            <td>Estado actual: Anulado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 6 -->
-                        <tr>
-                            <td>Nro boleta: 543</td>
-                            <td>Fecha venta: 05/11/2024</td>
-                            <td>Fecha de despacho: 06/11/2024</td>
-                            <td>Fecha de entrega: 07/11/2024</td>
-                            <td>Monto total: $36.800</td>
-                            <td>Estado actual: Vendido</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 7 -->
-                        <tr>
-                            <td>Nro boleta: 321</td>
-                            <td>Fecha venta: 18/12/2024</td>
-                            <td>Fecha de despacho: 19/12/2024</td>
-                            <td>Fecha de entrega: 20/12/2024</td>
-                            <td>Monto total: $51.600</td>
-                            <td>Estado actual: Entregado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 8 -->
-                        <tr>
-                            <td>Nro boleta: 654</td>
-                            <td>Fecha venta: 24/01/2024</td>
-                            <td>Fecha de despacho: 25/01/2024</td>
-                            <td>Fecha de entrega: 26/01/2024</td>
-                            <td>Monto total: $47.350</td>
-                            <td>Estado actual: Despachado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 9 -->
-                        <tr>
-                            <td>Nro boleta: 947</td>
-                            <td>Fecha venta: 03/02/2024</td>
-                            <td>Fecha de despacho: 04/02/2024</td>
-                            <td>Fecha de entrega: 05/02/2024</td>
-                            <td>Monto total: $39.200</td>
-                            <td>Estado actual: Vendido</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <!-- Ejemplo 10 -->
-                        <tr>
-                            <td>Nro boleta: 159</td>
-                            <td>Fecha venta: 21/03/2024</td>
-                            <td>Fecha de despacho: 22/03/2024</td>
-                            <td>Fecha de entrega: 23/03/2024</td>
-                            <td>Monto total: $56.700</td>
-                            <td>Estado actual: Anulado</td>
-                            <td>
-                                <a href="{% url 'boleta' %}">
-                                    <button type="button" href="#" class="btn btn-primary btn-sm">Ver detalle
-                      </button>
-                                </a>
-                            </td>
-                        </tr>
-
-                    </tbody>
+                        {% for boleta in historial %}
+                            {% if boleta.estado == 'Anulado' %}
+                                <tr class="letra-boleta-anulada"> 
+                            {% else %}
+                                <tr>
+                            {% endif %}
+                                <td> {{ boleta.nro_boleta }} </td>
+                                <td> {{ boleta.fecha_venta|formatear_fecha }} </td>
+                                <td> {{ boleta.fecha_despacho|formatear_fecha }} </td>
+                                <td> {{ boleta.fecha_entrega|formatear_fecha }} </td>
+                                <td> {{ boleta.total_a_pagar }} </td>
+                                <td> {{ boleta.estado }} </td>
+                                <td>
+                                    <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary">Detalle</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>       
                 </table>
             </div>
         </div>
     </div>
 {% endblock content %}
+
+{% block script %}
+    <script src="{% static 'core/js/script.js'%}"></script>
+{% endblock script %}

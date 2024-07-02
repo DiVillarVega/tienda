@@ -370,3 +370,8 @@ body {
   text-decoration: none;
   display: block;
 }
+
+.letra-boleta-anulada {
+  color: rgb(255, 50, 50); 
+  font-weight: bold;
+}
