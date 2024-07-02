@@ -374,9 +374,9 @@ def obtener_info_producto(producto_id):
         detalleboleta__isnull=False).count()
 
     # Preparar texto para mostrar estado: en oferta, sin oferta y agotado
-    con_oferta = f'<span class="text-primary"> EN OFERTA {
+    con_oferta = f'<span class="letra-ofertaa"> EN OFERTA {
         producto.descuento_oferta}% DE DESCUENTO </span>'
-    sin_oferta = '<span class="text-success"> DISPONIBLE EN BODEGA </span>'
+    sin_oferta = '<span class="letra-disponible"> DISPONIBLE EN BODEGA </span>'
     agotado = '<span class="letra-agotado"> AGOTADO </span>'
 
     if stock == 0:

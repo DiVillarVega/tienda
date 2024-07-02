@@ -3,6 +3,22 @@
   border: 1px solid red;
 }  */
 
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link * {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 .cuadro_blaco{
   background-color: white;
 }
@@ -234,6 +250,13 @@ body {
   width: 100%;
 }
 
+.letra-ofertaa{
+  color: rgb(0, 105, 252);
+  font-size: 18px;
+  display: inline-block;
+  font-weight: bold;
+}
+
 .letra-disponible{
   color: rgb(0, 192, 0);
   font-size: 18px;
@@ -248,15 +271,10 @@ body {
   font-weight: bold;
 }
 
-.letra-oferta{
-  color: rgb(230, 255, 0);
-  font-size: 25px;
-  display: inline-block;
-  font-weight: bold;
-}
+
 
 .precio-real-ficha-oferta{
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 40px;
   display: inline-block;
   font-weight: bold;
@@ -324,4 +342,11 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+
+.letra-normal-negra {
+  color: black;
+  text-decoration: none;
+  display: block;
 }
