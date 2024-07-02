@@ -41,7 +41,7 @@
                             <!-- AREA DE TITULOS DE LA TABLA -->
                             <tr class>
                                 <th> Imagen </th>
-                                <th> Nombre </th>
+                                <th> ID </th>
                                 <th> Acción </th>
                             </tr>
                         </thead>
@@ -53,7 +53,7 @@
                                         <img src="/media/{{ producto.imagen }}" class="producto-sm" alt="">
                                     </td>
                                     <td>                                                                                
-                                        {{ producto.nombre }}
+                                        {{ producto.bodega_id }}
                                     </td>
 
                                     <!-- Botón de eliminar producto de bodega, se activa sólo para productos no vendidos -->
@@ -80,4 +80,5 @@
 {% block script %}
     <input type="hidden" id="url_obtener_productos" value="{% url 'obtener_productos' %}">
     <script src="{% static 'core/js/validacion_bodega.js'%}"></script>
+    <script src="{% static 'core/js/script.js'%}"></script>
 {% endblock script %}
