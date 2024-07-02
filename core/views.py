@@ -102,8 +102,7 @@ def ingresar(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    messages.success(request, f'¡Bienvenido(a) {
-                                     user.first_name} {user.last_name}!')
+                    messages.success(request, f'¡Bienvenido(a) {user.first_name} {user.last_name}!')
                     return redirect(index)
                 else:
                     messages.error(request, 'La cuenta está desactivada.')
@@ -142,6 +141,13 @@ def registro(request):
 
         form_usuario = RegistroUsuarioForm(request.POST)
         form_perfil = RegistroPerfilForm(request.POST, request.FILES)
+
+        if form_usuario.is_valid() and form_perfil.is_valid():
+            user = form_usuario.save()
+            perfil = form_perfil.save(commit=False)
+            perfil.user = user
+            perfil.save()
+            return redirect('ingresar')  # Redirige a la página de inicio de sesión después de registrarse
 
     if request.method == 'GET':
 

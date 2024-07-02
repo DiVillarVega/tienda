@@ -11,7 +11,7 @@
                 <br>
 
                 <!-- Formulario de registro de cliente -->
-                <form method="POST" id="form" enctype="multipart/form-data" class="white-text">
+                <form method="POST" id="formulario_registro" enctype="multipart/form-data" class="white-text">
                     {% csrf_token %}
                     <div class="container-fluid">
                         <div class="row">
@@ -29,6 +29,8 @@
                                 <div class="row">
                                     <div class="col-sm-12" style="height: 220px">
                                         <img src="{% static 'core/img/perfil.webp'%}" alt="" class="user-image" id="perfil">
+                                        <br>
+                                        <button class="btn btn-primary boton_registro" onclick="event.preventDefault(); document.getElementById('id_imagen').click();">Seleccionar imagen</button>
                                     </div>
                                 </div>
                             </div>
@@ -41,8 +43,6 @@
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-primary boton_registro">Registrarse</button>
                                 <button type="reset" id="limpiar_formulario" class="btn btn-primary boton_registro">Limpiar</button>
-                                <input type="file" id="id_imagen" style="display: none;" accept="image/*" onchange="previewImage(event)">
-                                <button class="btn btn-primary boton_registro" onclick="event.preventDefault(); document.getElementById('id_imagen').click();">Seleccionar imagen</button>
                                 <button class="btn btn-primary boton_registro" id="crear_usuario_prueba"> Crear usuario de prueba </button>
                             </div>
                         </div>

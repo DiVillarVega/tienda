@@ -57,18 +57,15 @@ $(document).ready(function() {
         reader.readAsDataURL(input.files[0]);
       }
     });
+
+    
+  // AGREGAR METODO DE VALIDACION PARA REVISAR SI UN VALOR SE ENCUENTRA DENTRO DE UNA LISTA DEFINIDA
+  // POR EJEMPLO PARA REVISAR SI EL TIPO DE USUARIO ESTÁ DENTRO DE LA LISTA ['Administrador', 'Superusuario']
+  $.validator.addMethod("inList", function(value, element, param) {
+    return $.inArray(value, param) !== -1;
+  }, "Por favor, selecciona un valor válido.");
+
+
   }});
 
 
-  function previewImage(event) {
-    var input = event.target;
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            document.getElementById('perfil').src = e.target.result;
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}

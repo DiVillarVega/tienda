@@ -71,7 +71,7 @@ $(document).ready(function() {
     required: "Este campo es requerido",
   });
 
-  $('#form').validate({ 
+  $('#formulario_registro').validate({ 
       rules: {
         'username': {
           required: true,
