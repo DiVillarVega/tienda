@@ -134,5 +134,6 @@
 {% endblock content %}
 
 {% block script %}
+    <input type="hidden" id="url_obtener_productos" value="{% url 'obtener_productos' %}">
     <script src="{% static 'core/js/validacion_bodega.js'%}"></script>
 {% endblock script %}

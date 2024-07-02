@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm, Form, Textarea, FileInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Categoria, Producto, Perfil
+from .models import Categoria, Producto, Bodega,Perfil
 
 # *********************************************************************************************************#
 #                                                                                                          #
