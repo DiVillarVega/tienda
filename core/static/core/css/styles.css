@@ -152,6 +152,26 @@ body {
   0 0 20px rgba(38,104,127,1);
 }
 
+.index_ficha{
+  background: none;  
+}
+
+.index_ficha:hover{ 
+  background: none;  
+	box-shadow:
+		0 0 5px rgba(0,178,255,1),
+		0 0 10px rgba(0,178,255,1),
+		0 0 15px rgba(0,178,255,1),
+		0 0 20px rgba(38,104,127,1),
+		0 0 25px rgba(38,104,127,1),
+		0 0 30px rgba(38,104,127,1),
+		0 0 35px rgba(38,104,127,1),
+		0 0 40px rgba(38,104,127,1),
+		0 0 45px rgba(38,104,127,1);
+}
+
+
+
 #fotoFicha{
   width: 200px;
   max-height: 200px;
