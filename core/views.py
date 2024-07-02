@@ -285,8 +285,15 @@ def bodega(request):
 
     if request.method == 'POST':
 
-        # CREAR: acciones para agregar productos a la bodega
-        pass
+        producto_id= request.POST.get('producto')
+        producto = Producto.objects.get(id=producto_id)
+        cantidad = int(request.POST.get('cantidad'))
+        for cantidad in range(1,cantidad+1):
+            Bodega.objects.create(producto=producto)
+        if cantidad == 1:
+            messages.success(request, f'Se ha ingresado 1 nuevo "{producto.nombre}" a la bodega.')
+        else:
+            messages.success(request, f'Se han ingresado {cantidad} productos de "{producto.nombre}" a la bodega.')
 
     registros = Bodega.objects.all()
     lista = []
@@ -314,9 +321,17 @@ def obtener_productos(request):
     # La vista obtener_productos la usa la pagina "Administracion de bodega", para
     # filtrar el combobox de productos cuando el usuario selecciona una categoria
 
+    categoria_id = request.GET.get('categoria_id')
+    productos = Producto.objects.filter(categoria_id=categoria_id)
     # CREAR: Un JSON para devolver los productos que corresponden a la categoria
 
-    data = []
+    data = [
+        {
+            'id': producto.id,
+            'nombre': producto.nombre,
+            'imagen': producto.imagen.url
+        } for producto in productos
+    ]
     return JsonResponse(data, safe=False)
 
 
@@ -325,7 +340,13 @@ def eliminar_producto_en_bodega(request, bodega_id):
     # La vista eliminar_producto_en_bodega la usa la pagina "Administracion de bodega",
     # para eliminar productos que el usuario decidio sacar del inventario
 
-    # CREAR: lógica para eliminar un producto de la bodega
+    nombre_producto = Bodega.objects.get(id=bodega_id).producto.nombre
+    eliminado, error= verificar_eliminar_registro(Bodega, bodega_id, True)
+
+    if eliminado:
+        messages.success(request, f'Se ha eliminado el ID {bodega_id} ("{nombre_producto}") de la bodega.')
+    else:
+        messages.error(request,error)
 
     return redirect(bodega)
 
