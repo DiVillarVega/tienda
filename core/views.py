@@ -367,7 +367,7 @@ def miscompras(request):
             'fecha_entrega': boleta.fecha_entrega,
             'total_a_pagar': boleta.total_a_pagar,
             'estado': boleta.estado,
-            # Aquí puedes agregar cualquier otra opción que desees mostrar en "Opciones"
+            
         }
         historial.append(boleta_historial)
 
