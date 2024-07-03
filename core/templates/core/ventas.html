@@ -27,7 +27,7 @@
                     <tbody>
                         {% for boleta in historial %}
                         {% if boleta.estado == 'Anulado' %}
-                            <tr class="letra-boleta-anulada"> 
+                            <tr class="letra-boleta_anulada"> 
                         {% else %}
                             <tr>
                         {% endif %}
@@ -42,15 +42,15 @@
                             <td>{{boleta.estado}}</td>
         
                             <td>
-                                <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm btn-primary">Detalle</a>
+                                <a href="{% url 'boleta' boleta.nro_boleta %}" class="btn btn-sm boton_celeste">Detalle</a>
                             </td>
                             <td>
                                 <span>
                                     <div class="btn-group">
-                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Anulado' %}" class="btn btn-sm btn-danger">Anular</a>
-                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Vendido' %}" class="btn btn-sm btn-success">Vender</a>
-                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Despachado' %}" class="btn btn-sm btn-primary">Despachar</a>
-                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Entregado' %}" class="btn btn-sm btn-secondary">Entregar</a>
+                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Anulado' %}" class="btn btn-sm boton_rojo">Anular</a>
+                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Vendido' %}" class="btn btn-sm boton_verde">Vender</a>
+                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Despachado' %}" class="btn btn-sm boton_celeste">Despachar</a>
+                                        <a href="{% url 'cambiar_estado_boleta' boleta.nro_boleta 'Entregado' %}" class="btn btn-sm boton_gris">Entregar</a>
                                     </div>
                                 </span>
                             </td>

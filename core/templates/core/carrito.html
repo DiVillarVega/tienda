@@ -36,8 +36,8 @@
                                 <td class="text-end"> {{ item.precio_a_pagar|formatear_dinero }} </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{% url 'ficha' item.producto.id %}" class="btn btn-sm btn-primary"> Detalle </a> 
-                                        <a href="{% url 'eliminar_producto_en_carrito' item.id %}" class="btn btn-sm btn-danger"> Eliminar </a> 
+                                        <a href="{% url 'ficha' item.producto.id %}" class="btn btn-sm btn-primary boton_celeste"> Detalle </a> 
+                                        <a href="{% url 'eliminar_producto_en_carrito' item.id %}" class="btn btn-sm boton_rojo"> Eliminar </a> 
                                     </div>
                                 </td>
                             </tr>
