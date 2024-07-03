@@ -15,29 +15,25 @@ $(document).ready(function() {
    $('#formulario_login').validate(
     {
       rules: {
-        correo: {
-          required: true,
-          emailCompleto: true,
-          email: true
+        'username': {
+          required: true
         },
-        password: {
-          required: true,
-          minlength: 8,
-          maxlength: 15,
+        'password': {
+          required: true
         }
       },
       messages: {
-        correo: {
-          required: 'El correo es un campo obligatorio',
-          emailCompleto: 'Ingrese un correo válido',
-          email: 'Ingrese un correo válido'
+        'username': {
+          required: 'El usuario es un campo obligatorio.'
         },
-        password: {
-          required: 'La contraseña es un campo requerido',
-          minlength: 'La contraseña debe tener un mínimo de 8 caracteres',
-          maxlength: 'La contraseña debe tener un máximo de 15 caracteres', 
+        'password': {
+          required: 'La contraseña es un campo requerido.'
         }
-      }
+      },
+      errorPlacement: function(error, element) {
+        error.insertAfter(element); // Inserta el mensaje de error después del elemento
+        error.addClass('error-message'); // Aplica una clase al mensaje de error
+      },
     }
   );
 });
