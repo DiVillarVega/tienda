@@ -460,8 +460,9 @@ body {
   display: block;
 }
 
-.letra-boleta-anulada {
-  color: rgb(255, 50, 50); 
+.letra_boleta_anulada {
+  font-weight: bold;
+  color: rgb(255, 50, 50) !important;
 }
 
 .table_border {

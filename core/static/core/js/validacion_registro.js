@@ -47,7 +47,7 @@ $(document).ready(function() {
   }, "Sólo se permiten letras y espacios en blanco.");
 
     // El siguiente Javascript obliga a que la caja de texto del rut, siempre escriba la letra "K" en mayúscula
-     document.getElementById('rut').addEventListener('keyup', function(e) {
+     document.getElementById('id_rut').addEventListener('keyup', function(e) {
        e.target.value = e.target.value.toUpperCase();
      });
   
@@ -88,7 +88,7 @@ $(document).ready(function() {
           required: true,
           emailCompleto: true,
         },
-        'rut': {
+        'id_rut': {
           required: true,
           rutChileno: true,
         },
@@ -120,7 +120,7 @@ $(document).ready(function() {
           required: 'Debe ingresar su correo',
           emailCompleto: 'El formato del correo no es válido',
         },
-        'rut': {
+        'id_rut': {
           required: 'Debe ingresar su RUT',
           rutChileno: 'El formato del RUT no es válido',
         },

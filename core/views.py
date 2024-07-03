@@ -143,11 +143,16 @@ def registro(request):
         form_perfil = RegistroPerfilForm(request.POST, request.FILES)
 
         if form_usuario.is_valid() and form_perfil.is_valid():
-            user = form_usuario.save()
+            user = form_usuario.save(commit=False)
             perfil = form_perfil.save(commit=False)
             perfil.user = user
+            #Probablemente falta línea de código del video
+            perfil.user_id = user.id
             perfil.save()
             return redirect('ingresar')  # Redirige a la página de inicio de sesión después de registrarse
+        else:
+            messages.error(request, 'No se pudo registrar el usuario')
+            show_form_errors(request, [form_usuario, form_perfil])
 
     if request.method == 'GET':
 
