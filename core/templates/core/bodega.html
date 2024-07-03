@@ -60,10 +60,10 @@
                                     <td>
                                         {% if producto.estado == 'En bodega' %}
                                             <a href="{% url 'eliminar_producto_en_bodega' producto.bodega_id %}" 
-                                                class="btn btn-danger btn-sm"> Eliminar </a>
+                                                class="btn boton_rojo btn-sm"> Eliminar </a>
                                         {% else %}
                                             <a href="{% url 'eliminar_producto_en_bodega' producto.bodega_id %}" 
-                                                class="btn btn-primary btn-sm disabled"> Eliminar </a>
+                                                class="btn boton_gris btn-sm disabled"> Eliminar </a>
                                         {% endif %}
                                     </td>
                                 </tr>
