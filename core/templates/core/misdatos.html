@@ -11,7 +11,8 @@
                 <br>
 
                 <!-- Formulario de registro de cliente -->
-                <form method="POST" id="formulario_misdatos" action="">
+                <form method="POST" id="formulario_misdatos" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="container-fluid">
                         <div class="row">
                             <!-- campos del registro de usuario -->
@@ -79,11 +80,16 @@
 
                         </div>
 
+                        <!-- AREA DE BOTONES -->
                         <div class="row">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary boton_registro">Actualizar</button>
-                                <button type="reset" class="btn btn-primary boton_registro">Limpiar</button>
-                            </div>
+                            <div class="mt-2 text-center">
+
+                                <button type="submit" class="btn btn-primary boton_registro"> Actualizar mis datos </button>
+                          
+                                <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
+                                <button class="btn btn-primary boton_registro" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </button>  
+                          
+                              </div>
                         </div>
                     </div>
 
