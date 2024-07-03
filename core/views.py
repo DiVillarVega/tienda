@@ -138,28 +138,19 @@ def salir(request):
 def registro(request):
 
     if request.method == 'POST':
-
         form_usuario = RegistroUsuarioForm(request.POST)
         form_perfil = RegistroPerfilForm(request.POST, request.FILES)
-
         if form_usuario.is_valid() and form_perfil.is_valid():
-            user = form_usuario.save(commit=False)
+            usuario = form_usuario.save()
             perfil = form_perfil.save(commit=False)
-            perfil.user = user
-            #Probablemente falta línea de código del video
-            perfil.user_id = user.id
+            perfil.usuario = usuario
             perfil.save()
-            return redirect('ingresar')  # Redirige a la página de inicio de sesión después de registrarse
-        else:
-            messages.error(request, 'No se pudo registrar el usuario')
-            show_form_errors(request, [form_usuario, form_perfil])
-
-    if request.method == 'GET':
-
+            messages.success(request, f'¡Bienvenido(a) {usuario.first_name} {usuario.last_name}! tu registro se ha completado')
+            return redirect('ingresar')  # Redirige a la página principal después del registro
+    else:
         form_usuario = RegistroUsuarioForm()
         form_perfil = RegistroPerfilForm()
-
-    # CREAR: variable de contexto para enviar formulario de usuario y perfil
+    
     context = {
         'form_usuario': form_usuario,
         'form_perfil': form_perfil,
