@@ -17,63 +17,58 @@ $(document).ready(function() {
 
   }, "Sólo se permiten números.");
 
+  $.extend($.validator.messages, {
+    required: "Este campo es requerido",
+  });
+
   // Validar formulario de productos
   $('#formulario_productos').validate(
     {
       rules: {
-        id: {
-          required: true,
-          minlength: 1,
-          maxlength: 5,
-          soloNumeros: true
+        'categoria': {
+          required: true
         },
-        nombrep: {
+        nombre: {
           required: true,
           minlength: 1,
           maxlength: 60
         },
         descripcion: {
           required: true,
-          minlength: 10,
-          maxlength: 100
+          minlength: 20,
+          maxlength: 400
         },
         precio: {
           required: true,
           number: true,
           min: 0
         },
-        descuentosub: {
+        descuento_subscriptor: {
           required: true,
           number: true,
           min: 0,
           max: 100
         },
-        descuentoof: {
+        descuento_oferta: {
           required: true,
           number: true,
           min: 0,
           max: 100
-        },
-        categoria:{
-          required: true
         }
       },
       messages: {  
-        id: {
-          required: "El ID es un campo requerido",
-          minlength: 'El ID debe tener un mínimo de 1 caracteres',
-          maxlength: 'El ID debe tener un máximo de 7 caracteres',
-          soloNumeros: 'Ingrese solo números'
-        },   
-        nombrep: {
+        'categoria': {
+          required: "La categoría es un campo requerido"
+        },
+        nombre: {
           required: 'El nombre es un campo requerido',
           minlength: 'El nombre debe tener un minimo de 1 caracter',
           maxlength: 'El nombre debe tener un máximo de 60 caracteres'
         },
         descripcion: {
           required: 'La descripción es un campo requerido',
-          minlength: 'La descripción debe tener un mínimo de 10 caracteres',
-          maxlength: 'La descripción debe tener un máximo de 50 caracteres'
+          minlength: 'La descripción debe tener un mínimo de 20 caracteres',
+          maxlength: 'La descripción debe tener un máximo de 400 caracteres'
         },
         precio: {
           required: 'El precio es un campo requerido',
@@ -82,7 +77,7 @@ $(document).ready(function() {
           soloNumeros: 'Ingrese solo números',
           min: 'El precio debe ser mayor a 0'
         },
-        descuentosub: {
+        descuento_subscriptor: {
           required: 'El descuento es un campo requerido',
           minlength: 'El descuento debe tener un mínimo de 1 caracteres',
           maxlength: 'El descuento debe tener un máximo de 5 caracteres',
@@ -90,17 +85,14 @@ $(document).ready(function() {
           min: 'El descuento debe ser mayor a 0',
           max: 'El descuento debe ser menor a 100'
         },
-        descuentoof: {
+        descuento_oferta: {
           required: 'El descuento es un campo requerido',
           minlength: 'El descuento debe tener un mínimo de 1 caracteres',
           maxlength: 'El descuento debe tener un máximo de 5 caracteres',
           soloNumeros: 'Ingrese solo numeros y %',
           min: 'El descuento debe ser mayor a 0',
           max: 'El descuento debe ser menor a 100'
-        },
-        categoria: {
-          required: "La categoría es un campo requerido"
-        },
+        }
       }
     }
   );
