@@ -13,8 +13,6 @@
                 <!-- Formulario de registro de producto -->
                 <form method="POST" enctype="multipart/form-data" id="formulario_productos" action="" class="white-text">
                     {% csrf_token %}
-                <form method="POST" enctype="multipart/form-data" id="formulario_productos" action="" class="white-text">
-                    {% csrf_token %}
                     <div class="container-fluid">
                         <div class="row">
                             <!-- campos del registro de producto -->
@@ -50,16 +48,7 @@
                         </div>
                     </div>
                 </form>
-                        
-                    <div class="row">
-                        <div class="col text-center">
-                            <button type="submit" class="btn btn-primary boton_registro">Guardar nuevo</button>
-                            <button type="update" class="btn btn-primary boton_registro">Actualizar</button>
-                            <button type="reset" class="btn btn-primary boton_registro">Eliminar</button>
-                        </div>
-                    </div>
-                </form>
-                        
+                                                
                         <br><br>
                         <!-- tabla godines -->
                         <table id="tabla-principal" class="table table-hover">
@@ -79,7 +68,6 @@
                                 {% for producto in productos %}
                                 <!-- Primera linea -->
                                     <tr>
-                                        <td class="letra-titulo-producto3jajalol">{{ producto.id }}</td>
                                         <td class="letra-titulo-producto3jajalol">{{ producto.id }}</td>
                                         <td >{{ producto.categoria }}</td>
                                         <td >{{ producto.nombre }}</td>
