@@ -144,6 +144,7 @@ def registro(request):
             usuario = form_usuario.save()
             perfil = form_perfil.save(commit=False)
             perfil.usuario = usuario
+            perfil.tipo_usuario = 'Cliente'
             perfil.save()
             messages.success(request, f'¡Bienvenido(a) {usuario.first_name} {usuario.last_name}! tu registro se ha completado')
             return redirect('ingresar')  # Redirige a la página principal después del registro

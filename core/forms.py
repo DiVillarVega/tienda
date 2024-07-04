@@ -71,6 +71,7 @@ class RegistroUsuarioForm(UserCreationForm):
         labels = {
             'email': 'E-mail',
         }
+    
 
 # PARA LA PAGINA DE REGISTRO DE NUEVO CLIENTE Y MIS DATOS:
 # Crear RegistroPerfilForm como una clase que hereda de ModelForm
@@ -89,6 +90,7 @@ class RegistroPerfilForm(ModelForm):
             'direccion': forms.Textarea(),
             'imagen': forms.FileInput(),
         }
+
 
 # PARA LA PAGINA MIS DATOS Y MANTENEDOR DE USUARIOS:
 # Crear UsuarioForm como una clase que hereda de ModelForm
