@@ -117,4 +117,7 @@ var sin_imagen = '/static/core/img/sin-imagen.png';
     var imagen = opcionSeleccionada.data('imagen');
     $('#cuadro-imagen').attr('src', imagen);
   });
+
+  
+
 });

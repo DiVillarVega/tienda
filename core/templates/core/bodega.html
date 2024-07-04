@@ -22,6 +22,10 @@
                             <!-- Columna para los campos del formulario -->
                             <div class="col-md-8">
                                 {{ form|as_bootstrap_form }}
+
+                                <div style="display: flex; justify-content: flex-end;">
+                                    <button type="submit" class="btn btn-primary boton_registro">Agregar</button>
+                                </div>
                             </div>
                             <!-- Columna para la imagen -->
                             <div class="col-md-4 text-center">
@@ -42,6 +46,9 @@
                             <tr class>
                                 <th> Imagen </th>
                                 <th> ID </th>
+                                <th> Categoría </th>
+                                <th> Nombre </th>
+                                <th> Estado </th>
                                 <th> Acción </th>
                             </tr>
                         </thead>
@@ -55,6 +62,16 @@
                                     <td>                                                                                
                                         {{ producto.bodega_id }}
                                     </td>
+                                    <td>
+                                        {{ producto.nombre_categoria }}
+                                    </td>
+                                    <td>
+                                        {{ producto.nombre_producto }}
+                                    </td>
+                                    <td>
+                                        {{ producto.estado }}
+                                    </td>
+                                
 
                                     <!-- Botón de eliminar producto de bodega, se activa sólo para productos no vendidos -->
                                     <td>
