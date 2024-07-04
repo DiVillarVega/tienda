@@ -34,12 +34,13 @@
 
                                 <div class="col-sm-12" style="height: 220px">
                                     {% if form.instance.imagen %}
-                                        <img src="{{ form.instance.imagen.url }}" alt="" class="image-fluid" id="cuadro-imagen">
+                                        <img src="{{ form.instance.imagen.url }}" alt="" class="user-image" id="cuadro-imagen">
                                     {% else %}
-                                        <img src="{% static 'core/img/sin_imagen.jpg' %}" alt="" class="image-fluid" id="cuadro-imagen">
+                                        <img src="{% static 'core/img/sin_imagen.jpg' %}" alt="" class="user-image" id="cuadro-imagen">
                                     {% endif %}   
                                     <br> 
                                     <button class="btn btn-primary boton_registro" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </button>  
+                                    {{ form.imagen }}
                                 </div>
                             </div>
                             <!-- fin foto perfil -->
@@ -50,9 +51,7 @@
                          <!-- AREA DE BOTONES -->
                         <div class="mt-2 mb-3 text-center">
 
-                            <input class="btn btn-primary boton_registro" type="submit" value="Guardar">
-                    
-                            <a class="btn btn-primary boton_registro" href="{% url 'productos' 'crear' '0' %}"> Nuevo </a>                    
+                            <input class="btn btn-primary boton_registro" type="submit" value="Guardar">                 
                             {% if form.instance.id %}
                             <a class="btn btn-primary boton_registro"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
                             {% endif %}
