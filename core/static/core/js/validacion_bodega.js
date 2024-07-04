@@ -78,7 +78,7 @@ $(document).ready(function() {
   },
 });
 
-var sin_imagen = '/static/core/img/sin-imagen.png';
+var sin_imagen = '/static/core/img/sin_imagen.jpg';
 
 
   // COMBOBOX DEPENDIENTES PARA CATEGORIA Y PRODUCTO

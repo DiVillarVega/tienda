@@ -68,7 +68,7 @@ $(document).ready(function() {
 
   // Agregar una validación por defecto para que la imagen la exija como campo obligatorio
   $.extend($.validator.messages, {
-    required: "Este campo es requerido",
+    required: "La imagen es un campo requerido",
   });
 
   $('#formulario_misdatos').validate({ 
@@ -143,4 +143,5 @@ $(document).ready(function() {
   });
 
 });
+
 });
