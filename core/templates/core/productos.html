@@ -17,7 +17,15 @@
                         <div class="row">
                             <!-- campos del registro de producto -->
                             <div class="col-sm-12 col-md-6 col-lg-8">
-                                {{ form|as_bootstrap_form }}
+                                {{ form.categoria|as_bootstrap_field }}
+                                {{ form.nombre|as_bootstrap_field }}
+                                {{ form.descripcion|as_bootstrap_field }}
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-8">
+                                {{ form.precio|as_bootstrap_field }}
+                                {{ form.descuento_subscriptor|as_bootstrap_field }}
+                                {{ form.descuento_oferta|as_bootstrap_field }}
                             </div>
                             <!-- foto de perfil -->
                             <div class="col-sm-12 col-md-6 col-lg-4">
@@ -33,22 +41,23 @@
                                         <img src="{% static 'core/img/sin_imagen.jpg' %}" alt="" class="image-fluid" id="cuadro-imagen">
                                     {% endif %}
                                     
-                                    <button class="btn btn-primary boton_registro" onclick="event.preventDefault(); document.getElementById('id_imagen').click();">Seleccionar imagen</button>
-                                </div>
+                                    <button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </button>                                  </div>
                             </div>
                             <!-- fin foto perfil -->
                         </div>
                         <br>
                     </div>
                     <div class="row">
-                        <div class="col text-center">
-                            <button type="submit" class="btn btn-primary boton_registro">Guardar nuevo</button>
-                            <button type="update" class="btn btn-primary boton_registro">Actualizar</button>
+                         <!-- AREA DE BOTONES -->
+                        <div class="mt-2 mb-3 text-center">
 
-                        {% if form.instance.id %}    
-                            <a href="{% url 'productos' 'eliminar' form.instance.id %}" class="btn boton_registro"> Eliminar </a>
-                        {% endif %}    
-                       
+                            <input class="btn btn-primary" type="submit" value="Guardar">
+                    
+                            <a class="btn btn-primary" href="{% url 'productos' 'crear' '0' %}"> Nuevo </a>                    
+                            {% if form.instance.id %}
+                            <a class="btn btn-primary"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
+                            {% endif %}
+                    
                         </div>
                     </div>
                 </form>
@@ -82,7 +91,9 @@
                                         <td><img height="100px" src="{{ producto.imagen.url }}"></td>
                                         <td><div class="btn-group">
                                             <a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm boton_celeste"> Editar </a>
-                                            <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm boton_rojo"> Eliminar </a>
+                                            <form method="delete">
+                                                <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm"> Eliminar </a>
+                                            </form>
                                         </div></td>
                                     </tr>
                                 {% endfor %}
