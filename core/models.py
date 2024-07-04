@@ -69,6 +69,7 @@ class Perfil(models.Model):
         max_length=50,
         blank=False,
         null=False,
+        default='Cliente',
         verbose_name='Tipo de usuario'
     )
     rut = models.CharField(max_length=15, blank=False, null=False, verbose_name='RUT')
