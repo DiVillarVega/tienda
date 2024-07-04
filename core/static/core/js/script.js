@@ -16,6 +16,7 @@ $(document).ready(function() {
   if ($('#limpiar_formulario').length > 0) {
     $('#limpiar_formulario').click(function(event) {
       $("#form").validate().resetForm();
+      document.getElementById("form").reset();
     });
   }
 
