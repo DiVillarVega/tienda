@@ -252,21 +252,12 @@ def ventas(request):
 
 @user_passes_test(es_personal_autenticado_y_activo)
 def productos(request, accion, id):
-
-    if request.method == 'POST':
-
-        # CREAR: lógica para crear y actualizar un producto
-        pass
-
-    if request.method == 'GET':
-
-        # CREAR: lógica para preparar la página para la acción de: crear, actualizar y eliminar un producto
-        pass
-
-    # CREAR: variable de contexto para enviar el formulario y todos los productos
-    context = {}
-
-    return render(request, 'core/productos.html', context)
+    form = ProductoForm()
+    lista= Producto.objects.all()
+    return render(request, 'core/productos.html', {
+        'form': form,
+        'lista': lista
+    })
 
 
 @user_passes_test(es_personal_autenticado_y_activo)
