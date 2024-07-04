@@ -212,7 +212,7 @@ def boleta(request, nro_boleta):
         if boleta_es_del_usuario or request.user.is_staff:
             detalle_boleta = DetalleBoleta.objects.filter(boleta=boleta)
         else:
-            messages.error(request, f'Lo siento la boleta N° {nro_boleta} pertenece a otro usuario.')
+            messages.error(request, f'Lo siento, la boleta N° {nro_boleta} pertenece a otro usuario.')
             boleta = None
     else:
         messages.error(request, f'La boleta N° {nro_boleta} no existe.')
@@ -277,6 +277,7 @@ def productos(request, accion, id):
             Producto.objects.get(id=id).delete()
             messages.success(request, f'¡El producto con ID {id} ha sido eliminado con éxito!')
             return redirect(productos, 'crear', '0')
+        
     lista= Producto.objects.all()
     return render(request, 'core/productos.html', {
         'form': form,

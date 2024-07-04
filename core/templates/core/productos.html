@@ -44,7 +44,11 @@
                         <div class="col text-center">
                             <button type="submit" class="btn btn-primary boton_registro">Guardar nuevo</button>
                             <button type="update" class="btn btn-primary boton_registro">Actualizar</button>
-                            <button type="reset" class="btn btn-primary boton_registro">Eliminar</button>
+
+                        {% if form.instance.id %}    
+                            <a href="{% url 'productos' 'eliminar' form.instance.id %}" class="btn boton_registro"> Eliminar </a>
+                        {% endif %}    
+                       
                         </div>
                     </div>
                 </form>
@@ -76,7 +80,7 @@
                                         <td >{{ producto.descuento_subscriptor }}%</td>
                                         <td >{{ producto.descuento_oferta }}%</td>
                                         <td><img height="100px" src="{{ producto.imagen.url }}"></td>
-                                        <td>              <div class="btn-group">
+                                        <td><div class="btn-group">
                                             <a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm boton_celeste"> Editar </a>
                                             <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm boton_rojo"> Eliminar </a>
                                         </div></td>
