@@ -87,8 +87,9 @@ $(document).ready(function() {
         'email': {
           required: true,
           emailCompleto: true,
+          email: true
         },
-        'id_rut': {
+        'rut': {
           required: true,
           rutChileno: true,
         },
@@ -117,10 +118,11 @@ $(document).ready(function() {
           soloLetras: "Los apellidos sólo pueden contener letras y espacios en blanco",
         },
         'email': {
-          required: 'Debe ingresar su correo',
-          emailCompleto: 'El formato del correo no es válido',
+          required: 'El correo es un campo obligatorio',
+          emailCompleto: 'Ingrese un correo válido',
+          email: 'Ingrese un correo válido'
         },
-        'id_rut': {
+        'rut': {
           required: 'Debe ingresar su RUT',
           rutChileno: 'El formato del RUT no es válido',
         },

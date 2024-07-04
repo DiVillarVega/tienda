@@ -9,76 +9,18 @@
             <section class="text center">
                 <h1 class="cute-font-regular neon">MANTENEDOR DE USUARIOS</h1>
                 <br>
-                <form method="POST" id="formulario_usuarios" action="">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <!-- Campos del registro usuario -->
-                            <div class="col-sm-12 col-md-10 col-lg-8">
-                                <div class="form-group">
-                                    <label for="id" class="letra">ID</label>
-                                    <input type="number" class="form-control" id="id" name="id" placeholder="Ingrese el id" value="" />
-                                </div>
-                                <br>
-                                <div class="md-3 fw-bold letra">Tipo de Usuario.</div>
-                                <div class="opcion">
-                                    <input type="radio" id="cliente" name="tipo_usuario" value="cliente" class="form-check-input" checked>
-                                    <label for="cliente" class="letra">Cliente</label><br>
-                                </div>
-                                <div class="opcion">
-                                    <input type="radio" id="admin" name="tipo_usuario" value="admin" class="form-check-input">
-                                    <label for="admin" class="letra">Administrador</label><br>
-                                </div>
-                                <br><br>
-                                <div class="form-group">
-                                    <label for="rut" class="form-label letra">RUT</label>
-                                    <input type="text" class="form-control" id="rut" placeholder="Ej 11111111-1" name="rut" value="" />
+                <!-- Formulario de registro de cliente -->
+                <form method="POST" id="formulario_usuarios" enctype="multipart/form-data" class="white-text">
+                  {% csrf_token %}
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-sm-12 col-md-4">
+                              {{ form_usuario|as_bootstrap_form:'help_text_visible=False' }}
+                          </div>
 
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nombre" class="form-label letra">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese Nombre." name="nombre" value="" />
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="apellido" class="form-label letra">Apellido</label>
-                                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese Apellido." name="apellido" value="" />
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="correo" class="form-label letra">Correo</label>
-                                    <input type="email" class="form-control" id="correo" placeholder="Ingrese Correo." name="correo" value="" />
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="direc" class="form-label letra">Dirección</label>
-                                    <textarea class="form-control" id="direc" rows="3" placeholder="Ingrese Dirección." name="direc"></textarea>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="contraseña" class="form-label letra">Contraseña</label>
-                                    <div class="input-group-append">
-                                        <button class="btn boton_registro boton_registro:hover" type="button">Generar contraseña</button>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="mb-3 form-check" form check>
-                                    <input class="form-check-input" type="checkbox" value="" id="subscripcion">
-                                    <label class="form-check-label letra" for="subscripcion">
-                          <strong>
-                            Subscripción
-                          </strong>
-                        </label>
-                                    <div id="subscripcionHelp" class="form-help letra">
-                                        Deseo suscribirme a PenguinPixel con un pago de $3000 mensuales y obtener un descuento del 5% en mis compras
-                                    </div>
-                                    <div></div>
-                                </div>
-                                <div class="row mt-3">
+                          <div class="col-sm-12 col-md-5">
+                              {{ form_perfil|as_bootstrap_form }}
+                          </div>
                                     <!-- AREA DE BOTONES -->
                                     <div class="mt-2 text-center">
                                       

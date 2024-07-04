@@ -264,7 +264,7 @@ def productos(request, accion, id):
 @user_passes_test(es_personal_autenticado_y_activo)
 def usuarios(request, accion, id):
 
-    usuario = User.objecs.get(id=id) if int(id) > 0 else None
+    usuario = User.objects.get(id=id) if int(id) > 0 else None
     perfil = usuario.perfil if usuario else None
 
     if request.method == 'POST':
