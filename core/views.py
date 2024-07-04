@@ -191,6 +191,7 @@ def misdatos(request):
     context = {
         'form_usuario': form_usuario,
         'form_perfil': form_perfil,
+        'perfil': request.user.perfil, 
     }
 
     return render(request, 'core/misdatos.html', context)

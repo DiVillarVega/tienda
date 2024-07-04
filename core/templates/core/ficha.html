@@ -12,13 +12,15 @@
         <br>
         <div>
         {% comment %} {{ imagen }} <br> {% endcomment %}
+        <div class="letra-titulo-producto2 text-center">
+            {{ nombre }}
+        </div> <br>
 
         <img
-            class="card-img-top thumbnail-product"
+            class="card-img-top thumbnail-product2"
             src="/media/{{ imagen }}"
-            alt="" />
+            alt="" /> <br>
 
-        {{ nombre }} <br>
         {{ html_estado|safe }}  <br>
         {{ html_precio|safe }}  <br>
         {{ descripcion }}  <br>

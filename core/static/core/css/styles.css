@@ -42,6 +42,11 @@ body {
   max-width: 150px !important;
 }
 
+.thumbnail-product2 {
+  height: 250px !important;
+  max-width: 250px !important;
+}
+
 .precio-real{
   text-decoration: line-through;
 }
@@ -394,6 +399,18 @@ body {
   color: rgb(255, 50, 50);
   font-size: 18px;
   display: inline-block;
+  font-weight: bold;
+}
+
+.letra-titulo-producto{
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.letra-titulo-producto2{
+  color: rgb(0, 0, 0);
+  font-size: 28px;
   font-weight: bold;
 }
 

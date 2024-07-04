@@ -90,7 +90,7 @@
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" id="mini_producto">
             {% comment %} resaltado {% endcomment %}
             <a href="{% url 'ficha' producto.id %}" class="card-link index_ficha">
-              <div class="card mb-4 box-shadow" style="border: 1px solid rgb(255, 255, 255); background-color: #ffffff; padding: 30px; width: 300px; height: 500px; margin: 0 auto;">
+              <div class="card mb-4 box-shadow" style="border: 1px solid rgb(255, 255, 255); background-color: #ffffff; padding: 30px; width: 300px; height: 550px; margin: 0 auto;">
                 <div class="text-center">
                   <img class="card-img-top thumbnail-product" src="/media/{{ producto.imagen }}" alt="" />
                 </div>
@@ -98,9 +98,11 @@
                   <div class="card-text">
                     <div class="lead text-secondary fw-bold letra-normal-negra">{{ producto.html_estado|safe }}</div>
                     <br />
-                    {{ producto.html_precio|safe }}
-                    <br />
+                    <div class="letra-titulo-producto">
                     {{ producto.nombre }}
+                    </div>
+                    <br />
+                    {{ producto.html_precio|safe }}
                     <br />
                     <b>Descripción</b>
                     <br />
