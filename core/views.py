@@ -263,27 +263,44 @@ def productos(request, accion, id):
 @user_passes_test(es_personal_autenticado_y_activo)
 def usuarios(request, accion, id):
 
-    # CREAR: variables de usuario y perfil
+    usuario = User.objecs.get(id=id) if int(id) > 0 else None
+    perfil = usuario.perfil if usuario else None
 
     if request.method == 'POST':
 
-        # CREAR: un formulario UsuarioForm para recuperar datos del formulario asociados al usuario
-        # CREAR: un formulario PerfilForm para recuperar datos del formulario asociados al perfil del usuario
-        # CREAR: lógica para actualizar los datos del usuario
-        pass
+        form_usuario = UsuarioForm(request.POST, instance=usuario)
 
+        form_perfil = PerfilForm(request.POST, request.FILES, instance=perfil)
+
+        if form_usuario.is_valid() and form_perfil.is_valid():
+            usuario = form_usuario.save(commit=False)
+            tipo_usuario = form_perfil.cleaned_data['tipo_usuario']
+            usuario.is_staff = tipo_usuario in ['Administrador', 'Superusuario']
+            perfil = form_perfil.save(commit=False)
+            usuario.save()
+            perfil.usuario_id = usuario.id
+            perfil.save()
+            messages.success(request, f'¡El usuario {usuario.first_name} {usuario.last_name} fue guardado con éxito!')
+            return redirect(usuarios, 'actualizar', usuario.id)
+        else:
+            messages.error(request, 'No fue posible guardar el nuevo usuario')
+            show_form_errors(request, [form_usuario, form_perfil])
     if request.method == 'GET':
 
         if accion == 'eliminar':
-            # CREAR: acción de eliminar un usuario
-            pass
+            eliminado, mensaje = eliminar_registro(User, id)
+            messages.success(request, mensaje)
+            return redirect(usuarios, 'crear', '0')
         else:
-            # CREAR: un formulario UsuarioForm asociado al usuario
-            # CREAR: un formulario PerfilForm asociado al perfil del usuario
-            pass
+            form_usuario= UsuarioForm(instance=usuario)
+            form_perfil = PerfilForm(instance=perfil)
 
     # CREAR: variable de contexto para enviar el formulario de usuario, formulario de perfil y todos los usuarios
-    context = {}
+    context = {
+        'form_usuario': form_usuario,
+        'form_perfil': form_perfil,
+        'usuarios': User.objects.all().order_by('first_name', 'last_name'),
+    }
 
     return render(request, 'core/usuarios.html', context)
 

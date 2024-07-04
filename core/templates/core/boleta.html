@@ -77,16 +77,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for item in detalle_boleta %}
                         <tr>
-                            <td>{{item.bodega.producto.categoria.nombre}}</td>
-                            <td> {{item.bodega.producto.nombre}} </td>
-                            <td> {{item.precio}} </td>
-                            <td> {{item.descuento_subscriptor|formatear_porcentaje}} </td>
-                            <td> {{item.descuento_oferta|formatear_porcentaje}} </td>
-                            <td> {{item.descuento_total|formatear_porcentaje}} </td>
-                            <td> {{item.descuentos}} </td>
-                            <td> {{item.precio_a_pagar}} </td>
+                            <td>{{ item.bodega.producto.categoria.nombre }}</td>
+                            <td>{{ item.bodega.producto.nombre }}</td>
+                            <td>{{ item.precio|formatear_dinero }}</td>
+                            <td>{{ item.descuento_subscriptor|formatear_porcentaje }}</td>
+                            <td>{{ item.descuento_oferta|formatear_porcentaje }}</td>
+                            <td>{{ item.descuento_total|formatear_porcentaje }}</td>
+                            <td>{{ item.descuentos|formatear_dinero }}</td>
+                            <td>{{ item.precio_a_pagar|formatear_dinero }}</td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                     <tfoot>
                         <tr>
