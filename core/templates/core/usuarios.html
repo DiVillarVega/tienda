@@ -21,18 +21,31 @@
                           <div class="col-sm-12 col-md-5">
                               {{ form_perfil|as_bootstrap_form }}
                           </div>
+
+                          <div class="col-sm-12 col-md-3">
+                            <br>
+                            <div class="row">
+                              <div class="col-sm-12" style="height: 220px">
+                                {% if form_perfil.instance.imagen %}
+                                    <img src="{{ form_perfil.instance.imagen.url }}" alt="" class="user-image" id="cuadro-imagen">
+                                {% else %}
+                                    <img src="{% static 'core/img/perfil.webp' %}" alt="" class="user-image" id="cuadro-imagen">
+                                {% endif %}
+                                
+                                <button class="btn btn-primary boton_registro" onclick="event.preventDefault(); document.getElementById('id_imagen').click();">Seleccionar imagen</button>
+                            </div>
+                            </div>
+                        </div>
+
                                     <!-- AREA DE BOTONES -->
                                     <div class="mt-2 text-center">
                                       
-                                      <button type="submit" class="btn btn-primary"> Guardar </button>
+                                      <button type="submit" class="btn btn-primary boton_registro"> Guardar </button>
 
-                                      <a href="{% url 'usuarios' 'crear' '0' %}" class="btn btn-primary"> Nuevo </a>
-
-                                      <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
-                                      <button onclick="event.preventDefault(); document.getElementById('id_imagen').click();" class="btn btn-primary"> Seleccionar imagen </button>  
+                                      <a href="{% url 'usuarios' 'crear' '0' %}" class="btn btn-primary boton_registro"> Nuevo </a>
 
                                       {% if form_usuario.instance.id %}
-                                        <a class="btn btn-primary" href="{% url 'usuarios' 'eliminar' form_usuario.instance.id %}"> Eliminar </a>
+                                        <a class="btn btn-primary boton_registro" href="{% url 'usuarios' 'eliminar' form_usuario.instance.id %}"> Eliminar </a>
                                       {% endif %}
                                     
                                     </div>
@@ -75,16 +88,16 @@
           
             <td> {% if usuario.perfil.subscrito %} Sí {% else %} No {% endif %} </td>
             <td>
-              <img src="/media/{{ usuario.perfil.imagen }}" class="usuario-sm" alt="">
+              <img src="{{ usuario.perfil.imagen.url }}" class="usuario-sm" alt="">
             </td>
             <td>
               <div class="btn-group">
-                <a href="{% url 'usuarios' 'actualizar' usuario.id %}" class="btn btn-primary btn-sm"> Editar </a>
-                <a href="{% url 'usuarios' 'eliminar' usuario.id %}" class="btn btn-danger btn-sm"> Eliminar </a>
+                <a href="{% url 'usuarios' 'actualizar' usuario.id %}" class="btn btn-primary btn-sm boton_celeste"> Editar </a>
+                <a href="{% url 'usuarios' 'eliminar' usuario.id %}" class="btn btn-danger btn-sm boton_rojo"> Eliminar </a>
                 <form action="{% url 'cambiar_password' %}" method="post" id="form_{{ usuario.username }}">
                   {% csrf_token %}
                   <input type="hidden" id="username" name="username" value="{{ usuario.username }}">
-                  <button class="btn btn-info btn-sm" id="id_generar_password" onclick="document.getElementById('form_{{ usuario.username }}').submit();"> Contraseña </button>
+                  <button class="btn btn-info btn-sm boton_gris" id="id_generar_password" onclick="document.getElementById('form_{{ usuario.username }}').submit();"> Contraseña </button>
                 </form>
               </div>
             </td>
