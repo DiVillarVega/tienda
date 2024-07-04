@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 
     // El siguiente Javascript obliga a que la caja de texto del rut, siempre escriba la letra "K" en mayúscula
-     document.getElementById('rut').addEventListener('keyup', function(e) {
+     document.getElementById('id_rut').addEventListener('keyup', function(e) {
        e.target.value = e.target.value.toUpperCase();
      });
 
@@ -64,68 +64,78 @@ $(document).ready(function() {
   $('#formulario_usuarios').validate(
     {
       rules: {
-        id: {
+        username: {
           required: true,
-          min: 1
         },
         rut: {
           required: true,
           rutChileno: true
         },
-        nombre: {
+        first_name: {
           required: true,
           soloLetras: true,
           minlength: 3,
           maxlength: 50
         },
-        apellido: {
+        last_name: {
           required: true,
           soloLetras: true,
           minlength: 5,
           maxlength: 50
         },
-        correo: {
+        email: {
           required: true,
           emailCompleto: true,
           email: true
         },
-        direc: {
+        direccion: {
           required: true,
           minlength: 10,
           maxlength: 80,
         },
+        imagen: {
+          required: true,
+        },
+        tipo_usuario: {
+          required: true,
+        }
       },
       messages: {
-        id: {
-          required: "El ID es un campo requerido",
-          min: "El ID debe ser mayor a 0"
+        username: {
+          required: "El username es un campo requerido",
         },
         rut: {
           required: "El RUT es un campo requerido",
           rutChileno: "El RUT no es válido (escriba sin puntos y con guión)"
         },    
-        nombre: {
+        first_name: {
           required: 'El nombre es un campo requerido',
           minlength: 'El nombre debe tener un mínimo de 3 caracteres',
           maxlength: 'El nombre debe tener un máximo de 50 caracteres',
           soloLetras: "El nombre sólo puede contener letras y espacios en blanco",
         },
-        apellido: {
+        last_name: {
           required: 'El apellido es un campo requerido',
           minlength: 'El apellido debe tener un mínimo de 5 caracteres',
           maxlength: 'El apellido debe tener un máximo de 50 caracteres',
           soloLetras: "El nombre sólo puede contener letras y espacios en blanco",
         },
-        correo: {
+        email: {
           required: 'El correo es un campo obligatorio',
           emailCompleto: 'Ingrese un correo válido',
           email: 'Ingrese un correo válido'
         },
-        direc: {
+        direccion: {
           required: 'La dirección es un campo requerido',
           minlength: 'La dirección debe tener un mínimo de 10 caracteres',
           maxlength: 'La dirección debe tener un máximo de 80 caracteres'
         },
+        imagen: {
+          required: 'La imagen es un campo requerido',
+        },
+        tipo_usuario: {
+          required: 'El tipo de usuario es un campo requerido',
+        }
       }
     }
   );
