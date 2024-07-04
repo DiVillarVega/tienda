@@ -142,5 +142,12 @@ $(document).ready(function() {
       },
   });
 
+  // BOTON LIMPIAR FORMULARIO: Permite limpiar el formulario y las validaciones en rojo si las hubiera
+  if ($('#limpiar_formulario_registro').length > 0) {
+    $('#limpiar_formulario_registro').click(function(event) {
+      $("#formulario_registro").validate().resetForm();
+      document.getElementById("formulario_registro").reset();
+    });
+  }
 });
 });
