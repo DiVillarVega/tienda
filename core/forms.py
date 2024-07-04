@@ -119,7 +119,3 @@ class PerfilForm(ModelForm):
             'direccion': Textarea(attrs={'cols': 80, 'rows': 20}),
             'imagen': FileInput(),
         }
-
-    class Meta:
-        model = Perfil
-        fields = '__all__'
