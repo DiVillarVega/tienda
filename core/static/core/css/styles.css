@@ -475,3 +475,8 @@ body {
   width: 50px; /* Ajusta el ancho según sea necesario */
   height: auto; /* Mantiene la proporción de la imagen */
 }
+
+.usuario-sm {
+  width:  82px;
+  height: 70px;
+}
