@@ -93,9 +93,6 @@ $(document).ready(function() {
           minlength: 10,
           maxlength: 80,
         },
-        imagen: {
-          required: true,
-        },
         tipo_usuario: {
           required: true,
         }
@@ -129,9 +126,6 @@ $(document).ready(function() {
           required: 'La dirección es un campo requerido',
           minlength: 'La dirección debe tener un mínimo de 10 caracteres',
           maxlength: 'La dirección debe tener un máximo de 80 caracteres'
-        },
-        imagen: {
-          required: 'La imagen es un campo requerido',
         },
         tipo_usuario: {
           required: 'El tipo de usuario es un campo requerido',
