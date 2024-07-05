@@ -275,6 +275,7 @@ def productos(request, accion, id):
 
         if accion == 'crear':
             form = ProductoForm()
+            
 
         elif accion == 'actualizar':
             form = ProductoForm(instance=Producto.objects.get(id=id))
