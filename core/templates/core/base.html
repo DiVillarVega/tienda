@@ -69,7 +69,10 @@
                         </li> {% endcomment %}
 
                         <li class="nav-item">
-                          <a class="nav-link active" href="{% url 'ropa' %}">Concurso</a>
+                          <a class="nav-link active" href="{% url 'ropa' %}">
+                            <img src="{% static 'core/img/concursoropa.png' %}" style="height: 38px; margin-right: 10px;" alt="">
+                            Concurso
+                          </a>
                        </li>
 
                         {% comment %} <a href="{% url 'ropa' %}">
