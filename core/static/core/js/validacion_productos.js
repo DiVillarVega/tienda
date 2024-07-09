@@ -94,6 +94,15 @@ $(document).ready(function() {
     },      
     });
 
-  
+    
+    if ($('#limpiar_formulario_productos').length > 0) { 
+      $('#limpiar_formulario_productos').click(function(event) {
+        $("#formulario_productos").validate().resetForm();
+        
+        document.getElementById("formulario_productos").reset();
+        alert(document.getElementById("formulario_productos"));
+      });
+    }
+    
 
 });

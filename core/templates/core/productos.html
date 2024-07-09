@@ -49,9 +49,13 @@
                     </div>
                     <div class="row">
                          <!-- AREA DE BOTONES -->
+
                         <div class="mt-2 mb-3 text-center">
 
-                            <input class="btn btn-primary boton_registro" type="submit" value="Guardar">                 
+                            <input class="btn btn-primary boton_registro" type="submit" value="Guardar">             
+
+                            <a type="reset" class="btn btn-primary boton_registro" href="{% url 'productos' 'crear' 0 %}">Limpiar</a>
+
                             {% if form.instance.id %}
                             <a class="btn btn-primary boton_registro"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
                             {% endif %}
